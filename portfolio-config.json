@@ -1,0 +1,467 @@
+{
+  "personal": {
+    "name": "Anuj Jain",
+    "age": 22,
+    "location": "Vidisha, Madhya Pradesh, India",
+    "title": "Full-stack Python Developer & AI Engineer",
+    "email": "anujjainbatu@gmail.com",
+    "handle": "@anujjainbatu",
+    "bio": "Hey 👋\nI'm Anuj, a passionate Full-stack Python developer and AI engineer. I'm currently pursuing B.Tech in IoT at SATI and working as a freelance developer. I love building end-to-end smart systems — from IoT devices to LLM-powered applications. I'm a 2025 Smart India Hackathon finalist and enjoy solving real-world problems with technology.",
+    "avatar": "/profile.jpeg",
+    "fallbackAvatar": "https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3"
+  },
+  "education": {
+    "current": {
+      "degree": "B.Tech in Internet of Things",
+      "institution": "SATI",
+      "duration": "2022-2026",
+      "cgpa": "8.34/10.0",
+      "graduationDate": "June 2026"
+    },
+    "achievements": [
+      "2025 Smart India Hackathon Finalist (2nd among 88,221 teams)",
+      "HDFC Badhte Kadam Scholarship recipient"
+    ]
+  },
+  "experience": [
+    {
+      "company": "MookMati",
+      "position": "ML Intern",
+      "type": "Internship",
+      "duration": "July 2024",
+      "description": "AI-Powered Book Startup - Worked on machine learning models and AI systems",
+      "technologies": ["Python", "Machine Learning", "AI"]
+    },
+    {
+      "company": "Fiverr",
+      "position": "Freelance Python & AI Developer",
+      "type": "Freelance",
+      "duration": "2023-Present",
+      "description": "Delivered 25+ Python automation projects including web scraping, API bots, and data pipelines for global clients",
+      "technologies": ["Python", "LangChain", "LangGraph", "OpenAI API", "Web Scraping", "Automation"]
+    }
+  ],
+  "skills": {
+    "programming": ["Python", "JavaScript", "SQL", "HTML/CSS", "TypeScript"],
+    "ml_ai": ["Scikit-learn", "XGBoost", "TensorFlow", "OpenCV", "LangChain", "LangGraph", "OpenAI API", "LLM Agents", "Hugging Face"],
+    "web_development": ["React.js", "Next.js", "FastAPI", "Flask", "Django", "Firebase", "Tailwind CSS", "Node.js"],
+    "databases": ["PostgreSQL", "MongoDB", "Firebase", "MySQL"],
+    "devops_cloud": ["Docker", "Git", "AWS", "Heroku", "AWS EC2", "GitHub Actions"],
+    "iot_hardware": ["ESP32", "Arduino", "PCB Design", "Hardware Development", "IoT Systems", "Raspberry Pi"],
+    "soft_skills": ["Problem Solving", "Team Leadership", "Project Management", "Communication", "Learning Agility", "Innovation"]
+  },
+  "projects": [
+    {
+      "title": "Portfolio",
+      "category": "AI/Web Development",
+      "description": "Revolutionary AI-powered portfolio system: edit a single JSON file to get a complete interactive portfolio with an intelligent chatbot. Built with Next.js, React, and TypeScript. Features modern design, dynamic project showcases, and zero code required for updates.",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
+      "date": "2025",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Site",
+          "url": "https://portfolio.anujjainbatu.tech/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/portfolio"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/portfolio/main/assets/portfolio.png",
+          "alt": "Portfolio Homepage"
+        }
+      ]
+    },
+    {
+      "title": "LeetConnect",
+      "category": "Chrome Extension",
+      "description": "LeetConnect is a Chrome extension that connects you with friends and tracks LeetCode statistics in real-time. Stay motivated by seeing your friends' progress, get notified when they solve new problems, and manage your study group or team’s coding journey together. Features include real-time stats, friend management, auto-refresh, ranking change alerts, notifications, and more.",
+      "techStack": [
+        "JavaScript",
+        "Chrome Extension Manifest V3",
+        "HTML",
+        "CSS",
+        "Chrome Storage API",
+        "Chrome Notifications API",
+        "LeetCode API"
+      ],
+      "date": "2024",
+      "status": "Ongoing",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/leetconnect"
+        },
+        {
+          "name": "Demo GIF",
+          "url": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/demo-web.gif"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/demo-web.gif",
+          "alt": "LeetConnect Extension Gif"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/feature-1.png",
+          "alt": "LeetConnect Extension Demo"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/feature-2.png",
+          "alt": "LeetConnect Installation Demo"
+        }
+      ]
+    },
+    {
+      "title": "Chess Trace",
+      "category": "IoT System",
+      "description": "Built an IoT-enabled chessboard using ESP32, multiplexers, and 64 reed switches with 98.2% move detection accuracy at 1/8th the commercial cost. Features real-time move logging to Firebase, a web dashboard for live analysis and replay, and Stockfish-powered engine integration. Led a 3-member team through hardware prototyping, firmware development, cloud setup, and user testing with 20+ players.",
+      "techStack": [
+        "ESP32",
+        "C++ (Arduino)",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Firebase",
+        "Stockfish.js",
+        "PCB Design",
+        "IoT",
+        "Cloud Integration",
+        "Hardware Development"
+      ],
+      "date": "2025",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/chess-trace"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/solution_architecture_dia.jpeg",
+          "alt": "Solution Architecture Diagram"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/product.png",
+          "alt": "Product"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/product-2.png",
+          "alt": "Product"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/detection_technologies_back.png",
+          "alt": "Detection Technology"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/detection_technologies.png",
+          "alt": "Detection Technology"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/UX_UI.jpg",
+          "alt": "Web Dashboard Interface"
+        },
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/solution_architecture.jpeg",
+          "alt": "System Architecture Diagram"
+        }
+      ]
+    },
+    {
+      "title": "Insurance Premium Prediction API",
+      "category": "Backend API",
+      "description": "Designed and implemented a scalable Insurance Premium Prediction API using FastAPI, following industry best practices for modular architecture, input validation, and error handling. The API predicts insurance premium categories based on user input, offers robust documentation via Swagger UI, and includes Docker deployment support. Developed clear project structure, health check endpoints, and seamless integration for production environments.",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "Docker",
+        "Machine Learning",
+        "Swagger",
+        "Uvicorn"
+      ],
+      "date": "2025",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/insurance-premium-prediction-fastapi"
+        },
+        {
+          "name": "Docker Hub",
+          "url": "https://hub.docker.com/r/anujjainbatu/insurance-premium-api"
+        },
+        {
+          "name": "Live API Docs",
+          "url": "http://51.20.55.205:8000/docs"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/insurance-premium-prediction-fastapi/main/assets/demo.gif",
+          "alt": "Insurance Premium Prediction API Demo"
+        }
+      ]
+    },
+    {
+      "title": "IntelliPrice",
+      "category": "Machine Learning",
+      "description": "IntelliPrice is a machine learning-powered web application that predicts the price of a laptop based on its specifications. Built with Streamlit, it features a clean interface, fast predictions, and easy deployment via Docker. The model uses key attributes like brand, CPU, RAM, storage, GPU, and screen size for accurate real-time price estimates.",
+      "techStack": ["Python", "Streamlit", "scikit-learn", "Docker", "Pandas", "Machine Learning"],
+      "date": "2025",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/IntelliPrice"
+        },
+        {
+          "name": "Demo GIF",
+          "url": "https://github.com/anujjainbatu/IntelliPrice/blob/main/assets/demo.gif"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://github.com/anujjainbatu/IntelliPrice/blob/main/assets/demo.gif?raw=true",
+          "alt": "IntelliPrice App Demo"
+        }
+      ]
+    },
+    {
+      "title": "SpamSense",
+      "category": "NLP System",
+      "description": "SpamSense is an AI-powered tool that predicts whether your marketing emails will land in the inbox or spam folder. Designed for agencies to optimize campaign deliverability before sending, it features a Streamlit-based web interface and a scikit-learn machine learning model trained on real spam datasets.",
+      "techStack": [
+        "Python",
+        "Streamlit",
+        "scikit-learn",
+        "Jupyter Notebook",
+        "Machine Learning",
+        "Heroku"
+      ],
+      "date": "2025",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/spamsense"
+        },
+        {
+          "name": "Demo GIF",
+          "url": "https://github.com/anujjainbatu/spamsense/blob/main/assets/demo.gif"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://raw.githubusercontent.com/anujjainbatu/spamsense/main/assets/demo.gif",
+          "alt": "SpamSense Demo"
+        }
+      ]
+    },
+    {
+      "title": "PopcornPicks",
+      "category": "Machine Learning",
+      "description": "PopcornPicks is a movie recommender web app built with Streamlit. Select a movie you like and get personalized recommendations with detailed information and posters. Uses machine learning to suggest similar movies based on your selection. Developed model using movie metadata and similarity matrix.",
+      "techStack": ["Python", "Streamlit", "Pickle", "scikit-learn", "pandas", "Heroku"],
+      "date": "2024",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/popcornpicks"
+        }
+      ],
+      "images": []
+    },
+    {
+      "title": "Pralay Mitra",
+      "category": "AI/Disaster Management",
+      "description": "AI-powered disaster management system to assist government officials during emergencies. Features interactive dashboard, real-time high-risk city alerts, AI chatbot (Gemini API) for response planning, and centralized resources for food, shelter, and medical aid.",
+      "techStack": ["Python", "Django", "JavaScript", "Bootstrap", "FontAwesome", "Gemini API"],
+      "date": "2024",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/Pralay_Mitra"
+        }
+      ],
+      "images": []
+    },
+    {
+      "title": "hideFlare: CDN Obfuscation Detection System",
+      "category": "Cybersecurity Tool",
+      "description": "Python tool to uncover real hosting details of websites protected by Cloudflare. Automates subdomain enumeration, SSL analysis, ASN/org/GeoIP lookups, historical IP resolution, and outputs results for security researchers. Used for SIH 2024 finalist project for MP Police.",
+      "techStack": ["Python", "Subdomain Enumeration", "SSL Analysis", "SecurityTrails API"],
+      "date": "2024",
+      "status": "Completed",
+      "featured": true,
+      "achievements": ["Smart India Hackathon 2024 Finalist"],
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/hideFlare"
+        }
+      ],
+      "images": []
+    },
+    {
+      "title": "Monitoring System for TBFs",
+      "category": "Machine Learning",
+      "description": "Developed a condition monitoring system for Tunnel Booster Fans (TBFs) using machine learning. Jupyter notebooks and ML models for anomaly detection and preventive maintenance based on sensor data.",
+      "techStack": ["Python", "Jupyter Notebook", "Machine Learning", "Data Analysis"],
+      "date": "2024",
+      "status": "Completed",
+      "featured": true,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/Condition-based-monitoring-and-maintenance-system-for-Tunnel-Booster-Fans--TBFs-"
+        }
+      ],
+      "images": []
+    },
+    {
+      "title": "Python Automation Suite",
+      "category": "Automation",
+      "description": "Delivered 25+ Python automation projects for global clients, including web scraping, API bots, and data pipelines. Built GenAI-powered chatbots and autonomous agents using LangChain, LangGraph, and OpenAI APIs, reducing manual work by 60%.",
+      "techStack": ["Python", "LangChain", "LangGraph", "OpenAI API", "Web Scraping", "Automation"],
+      "date": "2023-Present",
+      "status": "Ongoing",
+      "featured": true,
+      "metrics": ["25+ Projects Delivered", "60% Manual Work Reduction"],
+      "links": [
+        {
+          "name": "Fiverr Profile",
+          "url": "https://www.fiverr.com"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu"
+        }
+      ],
+      "images": []
+    },
+    {
+      "title": "Fun With Filters",
+      "category": "Web Development",
+      "description": "A web app where users can upload images and apply a variety of fun image filters, built using JavaScript, HTML, and CSS. Try out creative filters and see instant results in your browser.",
+      "techStack": ["JavaScript", "HTML", "CSS"],
+      "date": "2023",
+      "status": "Completed",
+      "featured": false,
+      "links": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/anujjainbatu/FunWithFilters"
+        }
+      ],
+      "images": []
+    }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com/in/anujjainbatu",
+    "github": "https://github.com/anujjainbatu",
+    "twitter": "https://x.com/anujainbatu",
+    "kaggle": "https://www.kaggle.com/anujjainbatu",
+    "leetcode": "https://leetcode.com/u/anujjainbatu/",
+    "fiverr": "https://www.fiverr.com"
+  },
+  "internship": {
+    "seeking": true,
+    "duration": "6 months",
+    "startDate": "September 2025",
+    "preferredLocation": "Remote or On-site",
+    "focusAreas": ["AI Development", "Full-stack Development", "IoT Systems", "Machine Learning"],
+    "availability": "Available for immediate start",
+    "workStyle": "Fast learner, team player, problem solver",
+    "goals": "Join an innovative team building AI-powered solutions. I want to contribute to meaningful projects while growing my skills in enterprise-level development."
+  },
+  "personality": {
+    "traits": ["passionate", "curious", "determined", "collaborative"],
+    "interests": ["AI/ML", "IoT", "Web Development", "Open Source", "Hackathons"],
+    "funFacts": [
+      "Smart India Hackathon finalist among 88,000+ teams",
+      "Built 25+ automation projects for global clients",
+      "Love solving complex problems with simple solutions"
+    ],
+    "workingStyle": "I move fast, learn faster, and love tackling challenging problems",
+    "motivation": "Building technology that makes a real impact on people's lives"
+  },
+  "resume": {
+    "title": "Anuj Jain - Resume",
+    "description": "Full-stack Python Developer & AI Engineer | B.Tech IoT Student | SIH 2025 Finalist",
+    "fileType": "PDF",
+    "lastUpdated": "January 2025",
+    "fileSize": "2.1 MB",
+    "downloadUrl": "/resume.pdf"
+  },
+  "chatbot": {
+    "name": "Anuj",
+    "personality": "casual, enthusiastic, tech-savvy",
+    "tone": "friendly and conversational",
+    "language": "english",
+    "responseStyle": "short and interactive",
+    "useEmojis": true,
+    "topics": ["projects", "skills", "experience", "internship", "contact", "fun_facts"]
+  },
+  "presetQuestions": {
+    "me": [
+      "Who are you?",
+      "Tell me about yourself",
+      "What's your background?",
+      "What are your passions?",
+      "How did you get started in tech?",
+      "Where do you see yourself in 5 years?"
+    ],
+    "professional": [
+      "What are your skills?",
+      "Can I see your resume?",
+      "What's your experience?",
+      "Are you looking for internships?",
+      "Am I available for opportunities?",
+      "What makes you a valuable team member?",
+      "Where are you working now?",
+      "Why should I hire you?",
+      "What's your educational background?",
+      "How was your experience working as freelancer?"
+    ],
+    "projects": [
+      "What projects are you most proud of?",
+      "What are your projects?",
+      "Tell me about your best project",
+      "What are you working on?"
+    ],
+    "contact": [
+      "How can I reach you?",
+      "How can I contact you?",
+      "What's your email?",
+      "Where can I find you online?",
+      "What kind of project would make you say 'yes' immediately?",
+      "Where are you located?"
+    ],
+    "fun": [
+      "What are your hobbies?",
+      "Tell me something interesting about you",
+      "What motivates you?"
+    ]
+  },
+  "meta": {
+    "configVersion": "1.0",
+    "lastUpdated": "2025-01-13",
+    "generatedBy": "Anuj Jain",
+    "description": "Complete portfolio configuration for AI-powered portfolio website"
+  }
+}
