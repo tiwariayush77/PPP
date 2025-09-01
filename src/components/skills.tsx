@@ -13,12 +13,12 @@ const containerVariants = {
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as any } }
 };
 
 const chipVariants = {
   hidden: { opacity: 0, scale: 0.98 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.20, ease: 'easeOut' } }
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.20, ease: 'easeOut' as any} }
 };
 
 const Skills: React.FC = () => {
