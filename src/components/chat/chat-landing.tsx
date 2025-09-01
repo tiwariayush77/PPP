@@ -1,12 +1,8 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { Award, Code, GraduationCap, Mail, MessageSquare, Briefcase } from 'lucide-react';
 import React from 'react';
-
 import { presetReplies } from '@/lib/config-loader';
-
-
 
 interface ChatLandingProps {
   submitQuery: (query: string) => void;
@@ -14,7 +10,6 @@ interface ChatLandingProps {
 }
 
 const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetReply }) => {
-
   // Suggested questions that the user can click on
   const suggestedQuestions = [
     {
@@ -43,11 +38,9 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
   // Add debugging
   console.log('Question clicked:', questionText);
   console.log('Available preset keys:', Object.keys(presetReplies));
-  
   // Check if this question has a preset reply
   const preset = presetReplies[questionText as keyof typeof presetReplies];
   console.log('Found preset:', preset);
-  
   if (preset && handlePresetReply) {
     console.log('✅ Using preset reply');
     handlePresetReply(questionText, preset.reply, preset.tool);
@@ -56,7 +49,6 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     submitQuery(questionText);
   }
 };
-
 
   // Animation variants for staggered animation
   const containerVariants = {
@@ -76,7 +68,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: "easeInOut" as any, // ✅ Fixed: Use string easing instead of number array
       },
     },
   };
