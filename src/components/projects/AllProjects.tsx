@@ -14,10 +14,16 @@ export default function AllProjects() {
   const projects = config.projects || [];
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // UNIQUE SYMBOL FOR EACH PROJECT TILE (No duplicates!)
+  // UNIQUE SYMBOL FOR EACH PROJECT TILE (No duplicates!) - WITH PROPER TYPING
   const getUniqueProjectSymbol = (projectTitle: string, category: string, index: number) => {
-    // Define unique symbol combinations for each potential project
-    const projectSymbols = {
+    // Define unique symbol combinations for each potential project - FIXED WITH STRING INDEX SIGNATURE
+    const projectSymbols: { 
+      [key: string]: { 
+        icon: React.ComponentType<any>; 
+        gradient: string; 
+        bgColor: string; 
+      } 
+    } = {
       // Product Management projects - distinct icons
       'B2C Product Sprint - Truecaller Recognition': { 
         icon: Target, 
@@ -34,18 +40,16 @@ export default function AllProjects() {
         gradient: 'from-violet-500 to-purple-500',
         bgColor: 'group-hover:border-violet-300 dark:group-hover:border-violet-600'
       },
-'AI Order Assistant - n8n Workflow Automation': { 
-  icon: Zap, 
-  gradient: 'from-cyan-500 to-blue-500',
-  bgColor: 'group-hover:border-cyan-300 dark:group-hover:border-cyan-600'
-},
-'Nykaa Virtual Try-On - AR Makeup Experience': { 
-  icon: Smartphone,  // or Eye icon if you prefer
-  gradient: 'from-pink-500 to-rose-500',
-  bgColor: 'group-hover:border-pink-300 dark:group-hover:border-pink-600'
-},
-
-
+      'AI Order Assistant - n8n Workflow Automation': { 
+        icon: Zap, 
+        gradient: 'from-cyan-500 to-blue-500',
+        bgColor: 'group-hover:border-cyan-300 dark:group-hover:border-cyan-600'
+      },
+      'Nykaa Virtual Try-On - AR Makeup Experience': { 
+        icon: Smartphone,
+        gradient: 'from-pink-500 to-rose-500',
+        bgColor: 'group-hover:border-pink-300 dark:group-hover:border-pink-600'
+      },
       
       // Entrepreneurship projects - distinct icons
       'BrightBunny - EdTech Career Discovery Platform': { 
@@ -132,7 +136,13 @@ export default function AllProjects() {
     }
 
     // Fallback: category-based symbols with index variation to ensure uniqueness
-    const categorySymbols = {
+    const categorySymbols: { 
+      [key: string]: Array<{ 
+        icon: React.ComponentType<any>; 
+        gradient: string; 
+        bgColor: string; 
+      }> 
+    } = {
       'Product Management': [
         { icon: Target, gradient: 'from-blue-500 to-cyan-500', bgColor: 'group-hover:border-blue-300 dark:group-hover:border-blue-600' },
         { icon: Zap, gradient: 'from-violet-500 to-purple-500', bgColor: 'group-hover:border-violet-300 dark:group-hover:border-violet-600' },
@@ -207,7 +217,7 @@ export default function AllProjects() {
     }
   };
 
-  const openProjectModal = (project) => setSelectedProject(project);
+  const openProjectModal = (project: any) => setSelectedProject(project);
   const closeModal = () => setSelectedProject(null);
 
   return (
@@ -246,7 +256,7 @@ export default function AllProjects() {
 
           {/* Projects Grid - UNIQUE SYMBOL FOR EACH TILE */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {projects.map((project, index) => {
+            {projects.map((project: any, index: number) => {
               const symbolConfig = getUniqueProjectSymbol(project.title, project.category, index);
               const IconComponent = symbolConfig.icon;
               
@@ -292,7 +302,7 @@ export default function AllProjects() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          onClick={(e) => e.stopPropagation()}
+                          onClick={(e: any) => e.stopPropagation()}
                           className="inline-flex items-center text-blue-500 font-medium text-sm hover:text-blue-600 transition-colors"
                           title="View Live Demo"
                         >
@@ -331,7 +341,7 @@ export default function AllProjects() {
               animate="visible"
               exit="exit"
               className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: any) => e.stopPropagation()}
             >
               {/* Modal header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
@@ -371,7 +381,7 @@ export default function AllProjects() {
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Metrics</h4>
                       <div className="grid grid-cols-2 gap-3">
-                        {selectedProject.metrics.map((metric, index) => (
+                        {selectedProject.metrics.map((metric: string, index: number) => (
                           <div key={index} className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3">
                             <p className="text-sm font-medium text-gray-900 dark:text-white">{metric}</p>
                           </div>
@@ -384,7 +394,7 @@ export default function AllProjects() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Skills / Tools Used</h4>
                     <div className="flex flex-wrap gap-2">
-                      {selectedProject.techStack.map((tech, index) => (
+                      {selectedProject.techStack.map((tech: string, index: number) => (
                         <span
                           key={index}
                           className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full text-sm font-medium"
@@ -400,7 +410,7 @@ export default function AllProjects() {
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Links</h4>
                       <div className="flex gap-3">
-                        {selectedProject.links.map((link, index) => (
+                        {selectedProject.links.map((link: any, index: number) => (
                           <a
                             key={index}
                             href={link.url}
