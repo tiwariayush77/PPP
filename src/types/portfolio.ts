@@ -4,7 +4,7 @@ export interface PersonalInfo {
   location: string;
   title: string;
   email: string;
-  phone: string;  
+  phone: string;  // ✅ Added for contact component
   handle: string;
   bio: string;
   avatar: string;
@@ -31,7 +31,9 @@ export interface Experience {
   technologies: string[];
 }
 
+// ✅ FIXED: Added string index signature for dynamic access
 export interface Skills {
+  [key: string]: string[]; // ✅ Critical fix for dynamic property access
   programming: string[];
   ml_ai: string[];
   web_development: string[];
