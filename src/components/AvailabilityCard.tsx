@@ -1,8 +1,8 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import { CalendarDays, Code2, Globe, Briefcase } from 'lucide-react';
+import { Calendar, MapPin, Briefcase, TrendingUp, Users, Award, ExternalLink, User, Building2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { getConfig } from '@/lib/config-loader';
 
 interface AvailabilityData {
   availability: string;
@@ -43,173 +43,275 @@ interface AvailabilityCardProps {
 
 const AvailabilityCard = ({ data }: AvailabilityCardProps) => {
   const router = useRouter();
-
+  const config = getConfig();
+  
   const handleContactClick = () => {
-    // Navigate to home page with the contact preset question
     router.push('/?query=How can I reach you?');
   };
 
+  // Animation variants matching Contact section
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-accent mx-auto mt-8 w-full max-w-4xl rounded-3xl px-6 py-8 font-sans sm:px-10 md:px-16 md:py-12"
-    >
-      {/* Header */}
-      <div className="mb-6 flex flex-col items-center sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-4">
-          {/* Avatar placeholder */}
-          <div className="bg-muted h-16 w-16 overflow-hidden rounded-full shadow-md">
-            <img
-              src="/profile.jpeg"
-              alt="Anuj's avatar"
-              className="h-full w-full object-cover object-[center_top_-5%] scale-95"
-            />
-          </div>
-          <div>
-            <h2 className="text-foreground text-2xl font-semibold">
-              Anuj Jain
-            </h2>
-            <p className="text-muted-foreground text-sm">
-              Available for Opportunities
-            </p>
-          </div>
-        </div>
-
-        {/* Enhanced Live badge with availability status */}
-        <div className="mt-4 flex flex-col items-center gap-2 sm:mt-0 sm:items-end">
-          <span className="flex items-center gap-1 rounded-full border border-green-500 px-3 py-0.5 text-sm font-medium text-green-500">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-            </span>
-            Available Now
-          </span>
-          <p className="text-xs text-muted-foreground text-center sm:text-right">
-            Open to full-time & internship roles
-          </p>
-        </div>
-      </div>
-
-      {/* Availability Highlight Section */}
-      <div className="mb-8 rounded-2xl bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 border border-green-200 dark:border-green-800">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
-            <Briefcase className="h-4 w-4 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-foreground">Current Availability Status</h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Status</p>
-            <p className="text-sm text-green-600 dark:text-green-400 font-semibold">
-              {data?.availability || "✅ Available for immediate start"}
-            </p>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Looking for</p>
-            <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
-              Full-time roles, Internships & Contract work
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Internship Info */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="flex items-start gap-3">
-          <CalendarDays className="mt-1 h-5 w-5 text-blue-500" />
-          <div>
-            <p className="text-foreground text-sm font-medium">Duration</p>
-            <p className="text-muted-foreground text-sm">
-              {data?.availability || "Available for full-time roles starting immediately"}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <Globe className="mt-1 h-5 w-5 text-green-500" />
-          <div>
-            <p className="text-foreground text-sm font-medium">Location</p>
-            <p className="text-muted-foreground text-sm">
-              {data?.preferences.location || "Based in India, open to relocation for the right opportunity 🇮🇳"}
-            </p>
-          </div>
-        </div>
-
-        {/* Tech stack */}
-        <div className="flex items-start gap-3 sm:col-span-2">
-          <Code2 className="mt-1 h-5 w-5 text-purple-500" />
-          <div className="w-full">
-            <p className="text-foreground text-sm font-medium">Tech stack</p>
-            <div className="text-muted-foreground grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-2">
-              <ul className="decoration-none list-disc pl-4">
-                {data?.skills.technical.slice(0, 4).map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                )) || (
-                  <>
-                    <li>Python, SQL, JavaScript, HTML/CSS</li>
-                    <li>FastAPI, Flask, Django, React.js</li>
-                    <li>Scikit-learn, XGBoost, TensorFlow, OpenCV</li>
-                    <li>OpenAI API, LangChain, LangGraph</li>
-                  </>
-                )}
-              </ul>
-              <ul className="list-disc pl-4">
-                {data?.skills.technical.slice(4, 8).map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                )) || (
-                  <>
-                    <li>Docker, Git, GitHub Actions, AWS</li>
-                    <li>Firebase, Heroku, ESP32, IoT</li>
-                    <li>Machine Learning, AI Agents</li>
-                    <li>Web Scraping, Automation</li>
-                  </>
-                )}
-                <li>
-                  <a
-                    href="/?query=What%20are%20your%20skills%3F%20Give%20me%20a%20list%20of%20your%20soft%20and%20hard%20skills."
-                    className="cursor-pointer items-center text-blue-500 underline"
-                  >
-                    See more
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* What I bring */}
-      <div className="mt-10">
-        <p className="text-foreground mb-2 text-lg font-semibold">
-          What I bring
-        </p>
-        <p className="text-foreground text-sm">
-          {data?.experience.internshipCompleted || "Real-world ML experience from MookMati (Genre classification, FastAPI deployment, AWS)."} <br /> 
-          {data?.achievements[0] || "2nd position in Smart India Hackathon 2025 among 88,221 teams with hideFlare cybersecurity tool."} <br /> 
-          {data?.experience.freelanceWork || "25+ freelance automation projects delivered on Fiverr, cutting manual work by 60%."}
-        </p>
-      </div>
-
-      {/* Goal */}
-      <div className="mt-8">
-        <p className="text-foreground mb-2 text-lg font-semibold">Goal</p>
-        <p className="text-foreground text-sm">
-          {data?.lookingFor.growthOpportunities || "Looking for roles that offer learning and advancement opportunities with experienced teams."} I want to work on {data?.lookingFor.technicalChallenges || "cutting-edge technologies"} that {data?.lookingFor.impactfulWork || "solve real-world problems and make a meaningful impact"}. I'm passionate, adaptable, and ready to contribute to {data?.lookingFor.collaboration || "collaborative, innovative environments"}! 🚀
-        </p>
-      </div>
-
-      {/* Contact button */}
-      <div className="mt-10 flex justify-center">
-        <button
-          onClick={handleContactClick}
-          className="cursor-pointer rounded-full bg-black px-6 py-3 font-semibold text-white transition-colors duration-300 hover:bg-zinc-800"
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="text-center mb-16"
         >
-          Contact me
-        </button>
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-600 dark:text-green-300 text-sm font-medium mb-4">
+              <Briefcase className="w-4 h-4 mr-2" />
+              Available for Opportunities
+            </div>
+          </motion.div>
+          
+          <motion.h2 
+            variants={itemVariants}
+            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+          >
+            Ayush <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Tiwari</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={itemVariants}
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12"
+          >
+            Product Manager & Data Analytics Professional ready to drive growth and innovation through data-driven decision making and strategic product development.
+          </motion.p>
+        </motion.div>
+
+        {/* Availability Status Cards - Same Height */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {/* Current Status */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            className="group relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full h-80 p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-green-300 dark:group-hover:border-green-600 flex flex-col"
+            >
+              <div className="flex-1 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <User className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-500 transition-colors">
+                  Available Now
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-2">
+                  Ready for immediate start on Product Management & Analytics roles
+                </p>
+              </div>
+              <div className="inline-flex items-center text-green-500 font-medium text-sm mt-4 justify-center">
+                <Calendar className="w-4 h-4 mr-2" />
+                Immediate Start
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Location & Preferences */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            className="group relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full h-80 p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 flex flex-col"
+            >
+              <div className="flex-1 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <MapPin className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors">
+                  Location & Remote
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-2">
+                  Based in India, open to remote work and relocation globally 🌎
+                </p>
+              </div>
+              <div className="inline-flex items-center text-blue-500 font-medium text-sm mt-4 justify-center">
+                <Building2 className="w-4 h-4 mr-2" />
+                Remote Ready
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Role Focus */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            className="group relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full h-80 p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-purple-300 dark:group-hover:border-purple-600 flex flex-col"
+            >
+              <div className="flex-1 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Briefcase className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-500 transition-colors">
+                  Seeking Roles
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-2">
+                  Product Manager, Data Analyst, Growth roles & strategic internships
+                </p>
+              </div>
+              <div className="inline-flex items-center text-purple-500 font-medium text-sm mt-4 justify-center">
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Growth Focused
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Key Skills & Experience - Same Height */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {/* Core Competencies */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            className="group relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                  Core Skills
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {[
+                  "Product Strategy & Roadmapping",
+                  "Data Analytics & A/B Testing", 
+                  "User Research & Market Analysis",
+                  "SQL, Python & JavaScript",
+                  "Agile & Cross-functional Leadership"
+                ].map((skill, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">{skill}</span>
+                  </div>
+                ))}
+              </div>
+              <button 
+                onClick={() => router.push('/?query=What are your skills?')}
+                className="mt-6 inline-flex items-center text-blue-500 font-medium hover:text-blue-600 transition-colors"
+              >
+                <span>View all skills</span>
+                <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </motion.div>
+          </motion.div>
+
+          {/* What I Bring */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+            className="group relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-emerald-300 dark:group-hover:border-emerald-600"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                  What I Bring
+                </h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    <strong className="text-emerald-600">Proven Track Record:</strong> Led product initiatives resulting in 40% user engagement increase
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    <strong className="text-blue-600">Data-Driven Approach:</strong> Expert in analytics tools and frameworks for actionable insights
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    <strong className="text-purple-600">Strategic Vision:</strong> Experience in 0→1 product development and market analysis
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Goal & Call to Action */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={itemVariants}
+          className="text-center"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-3xl p-8 mb-8 border border-blue-200 dark:border-blue-800">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                <Users className="h-4 w-4 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">My Goal</h3>
+            </div>
+            <p className="text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Looking to join innovative teams where I can leverage data analytics and product strategy to drive meaningful business impact. 
+              I'm passionate about building user-centric products that solve real problems and create lasting value in collaborative, growth-oriented environments! 🚀
+            </p>
+          </div>
+          
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleContactClick}
+            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
+            Let's Connect
+          </motion.button>
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

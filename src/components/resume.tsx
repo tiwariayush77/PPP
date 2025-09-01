@@ -1,20 +1,19 @@
 'use client';
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine, Download, Eye, File, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export function Resume() {
-  // Resume details
+  // Resume details - Updated for Ayush Tiwari PPP Portfolio
   const resumeDetails = {
-    title: "Anuj's Resume",
-    description: 'Full Stack Python Developer • AI Engineer',
+    title: "Ayush Tiwari - Product Manager Resume",
+    description: 'Product Manager | 0→1 Product Strategy Expert | 3+ YOE across FinTech, EdTech & B2B',
     fileType: 'PDF',
-    lastUpdated: 'March 2025',
-    fileSize: '0.5 MB',
-    previewImageSrc: '/anuj_resume_preview.png', // You'll need to add this image
-    downloadUrl: 'https://anujjainbatu.github.io/anujjainbatu/Anuj_Jain_Resume.pdf',
+    lastUpdated: 'August 2025',
+    fileSize: '110 KB',
+    previewImageSrc: '/ayush_resume_preview.png', // You can add this image later
+    downloadUrl: '/Ayush_Tiwari_Resume.pdf', // Make sure to copy your PDF to /public/resume.pdf
   };
 
   const handleDownload = () => {
@@ -49,7 +48,6 @@ export function Resume() {
                 <span>{resumeDetails.fileSize}</span>
               </div>
             </div>
-
             {/* Download button */}
             <motion.button
               onClick={handleDownload}
@@ -64,7 +62,7 @@ export function Resume() {
         </div>
       </motion.div>
 
-      {/* PDF Preview - Always Visible */}
+      {/* PDF Preview - Mobile Responsive */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -81,18 +79,40 @@ export function Resume() {
             className="flex items-center gap-1 px-3 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
             <ExternalLink className="h-3 w-3" />
-            Open Full
+            <span className="hidden sm:inline">Open Full</span>
+            <span className="sm:hidden">Open</span>
           </button>
         </div>
         
-        <div className="w-full h-[600px] bg-gray-50">
-          <iframe
-            src={resumeDetails.downloadUrl}
-            width="100%"
-            height="100%"
-            className="border-0"
-            title="Resume Preview"
-          />
+        {/* Mobile-First Responsive Container */}
+        <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-gray-50 relative">
+          {/* Mobile Alternative - Direct Link */}
+          <div className="block sm:hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <File className="h-16 w-16 text-gray-400 mb-4" />
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">Resume Preview</h3>
+            <p className="text-sm text-gray-500 mb-6">
+              PDF preview not available on mobile. Tap below to view or download.
+            </p>
+            <button
+              onClick={handleDownload}
+              className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <ExternalLink className="h-4 w-4" />
+              View Resume
+            </button>
+          </div>
+
+          {/* Desktop PDF Iframe */}
+          <div className="hidden sm:block w-full h-full">
+            <iframe
+              src={resumeDetails.downloadUrl}
+              width="100%"
+              height="100%"
+              className="border-0"
+              title="Resume Preview"
+              loading="lazy"
+            />
+          </div>
         </div>
       </motion.div>
     </div>

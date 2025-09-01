@@ -1,467 +1,482 @@
 {
   "personal": {
-    "name": "Anuj Jain",
-    "age": 22,
-    "location": "Vidisha, Madhya Pradesh, India",
-    "title": "Full-stack Python Developer & AI Engineer",
-    "email": "anujjainbatu@gmail.com",
-    "handle": "@anujjainbatu",
-    "bio": "Hey 👋\nI'm Anuj, a passionate Full-stack Python developer and AI engineer. I'm currently pursuing B.Tech in IoT at SATI and working as a freelance developer. I love building end-to-end smart systems — from IoT devices to LLM-powered applications. I'm a 2025 Smart India Hackathon finalist and enjoy solving real-world problems with technology.",
+    "name": "Ayush Tiwari",
+    "age": 24,
+    "location": "Indore, Madhya Pradesh, India",
+    "title": "Product Manager | 0→1 Product Strategy Expert",
+    "email": "tiwariayush77@gmail.com",
+    "phone": "+91-78988-31234",
+    "handle": "@ayushtiwari",
+    "bio": "Hey 👋\nI'm Ayush, a product-driven professional with 3+ years of experience leading 0→1 journeys across FinTech (Vance Inc.) and EdTech (Exampeer), plus my own venture BrightBunny. I specialize in GTM strategies, user research loops, and cross-functional execution that drives real impact. Recent product work was recognized by Truecaller's team for strategic depth and user-first thinking. Currently a Product Management Fellow at Product Space, I love solving complex problems with structured thinking and turning insights into meaningful user engagement.",
     "avatar": "/profile.jpeg",
-    "fallbackAvatar": "https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3"
+    "fallbackAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   "education": {
     "current": {
-      "degree": "B.Tech in Internet of Things",
-      "institution": "SATI",
-      "duration": "2022-2026",
-      "cgpa": "8.34/10.0",
-      "graduationDate": "June 2026"
+      "degree": "B.Tech (Hons.) in Electronics & Communication Engineering",
+      "institution": "University Institute of Technology, RGPV (Autonomous)",
+      "duration": "2018-2022",
+      "cgpa": "First Class",
+      "graduationDate": "January 2022"
     },
     "achievements": [
-      "2025 Smart India Hackathon Finalist (2nd among 88,221 teams)",
-      "HDFC Badhte Kadam Scholarship recipient"
+      "Product Management Fellow at Product Space (2025)",
+      "Recognition from Truecaller product team for strategic execution",
+      "Led 0→1 products with 30%+ engagement lift and 20% conversion boost",
+      "Founded EdTech startup impacting 50+ students"
     ]
   },
   "experience": [
     {
-      "company": "MookMati",
-      "position": "ML Intern",
-      "type": "Internship",
-      "duration": "July 2024",
-      "description": "AI-Powered Book Startup - Worked on machine learning models and AI systems",
-      "technologies": ["Python", "Machine Learning", "AI"]
+      "company": "Product Space",
+      "position": "Product Management Fellow",
+      "type": "Fellowship",
+      "duration": "June 2025 - Current",
+      "description": "Cohort-based PM fellowship focused on 0→1 execution. Led 2 product sprints (B2C & SaaS) from research to GTM; one solution earned recognition from Truecaller's product team for strategy and execution, driving 30%+ engagement lift.",
+      "technologies": ["Product Strategy", "User Research", "GTM", "0→1 Development", "B2C", "SaaS"]
     },
     {
-      "company": "Fiverr",
-      "position": "Freelance Python & AI Developer",
-      "type": "Freelance",
-      "duration": "2023-Present",
-      "description": "Delivered 25+ Python automation projects including web scraping, API bots, and data pipelines for global clients",
-      "technologies": ["Python", "LangChain", "LangGraph", "OpenAI API", "Web Scraping", "Automation"]
+      "company": "Vance Inc.",
+      "position": "Product Strategy & GTM",
+      "type": "Full-time",
+      "duration": "January 2022 - April 2022",
+      "description": "Led 0→1 B2B sales pipeline by identifying high-conversion segments and informing product-market fit. Drove 20% increase in lead conversion and 15% faster onboarding via GTM experiments and user funnel analysis.",
+      "technologies": ["B2B Strategy", "Sales Pipeline", "Product-Market Fit", "GTM Strategy", "Funnel Analysis"]
+    },
+    {
+      "company": "WebMobi",
+      "position": "Assistant Product Manager",
+      "type": "Full-time",
+      "duration": "July 2021 - October 2021",
+      "description": "Boosted customer engagement by 30% through landing page optimization and friction-point removal via user journey mapping. Improved dev cycle efficiency by 15% by streamlining cross-team coordination.",
+      "technologies": ["Product Management", "User Journey Mapping", "Landing Page Optimization", "Cross-functional Leadership"]
+    },
+    {
+      "company": "Exampeer",
+      "position": "Business Development Executive",
+      "type": "Full-time",
+      "duration": "June 2019 - June 2021",
+      "description": "Led market and competitor analysis across 10+ players and 3 key user cohorts, improving positioning clarity and boosting demo-to-signup conversion by 25%. Built user feedback loops leading to 3+ UX improvements and 20% boost in task completion.",
+      "technologies": ["Market Research", "User Research", "Competitor Analysis", "UX Strategy", "Conversion Optimization"]
     }
   ],
-  "skills": {
-    "programming": ["Python", "JavaScript", "SQL", "HTML/CSS", "TypeScript"],
-    "ml_ai": ["Scikit-learn", "XGBoost", "TensorFlow", "OpenCV", "LangChain", "LangGraph", "OpenAI API", "LLM Agents", "Hugging Face"],
-    "web_development": ["React.js", "Next.js", "FastAPI", "Flask", "Django", "Firebase", "Tailwind CSS", "Node.js"],
-    "databases": ["PostgreSQL", "MongoDB", "Firebase", "MySQL"],
-    "devops_cloud": ["Docker", "Git", "AWS", "Heroku", "AWS EC2", "GitHub Actions"],
-    "iot_hardware": ["ESP32", "Arduino", "PCB Design", "Hardware Development", "IoT Systems", "Raspberry Pi"],
-    "soft_skills": ["Problem Solving", "Team Leadership", "Project Management", "Communication", "Learning Agility", "Innovation"]
-  },
+ "skills": {
+  "product_management": [
+    "0→1 Product Development",
+    "Product Strategy",
+    "User Research & Insights",
+    "GTM Strategy & Execution",
+    "Product-Market Fit",
+    "Cross-functional Leadership"
+  ],
+  "business_strategy": [
+    "Go-to-Market Strategy",
+    "Competitive Analysis", 
+    "Business Development",
+    "Market Research",
+    "User Persona Development",
+    "B2B Sales Strategy"
+  ],
+  "technical_skills": [
+    "API Integration Understanding",
+    "Technical Product Management",
+    "Data-Driven Decision Making",
+    "User Journey Mapping", 
+    "Wireframing & Prototyping"
+  ],
+  "certifications": [
+    {
+      "name": "Aha! Product Management Professional Certificate",
+      "url": "https://www.linkedin.com/learning/certificates/d66054295450d02fd23c43cefdf775cccf3df7ac69fb384cccb38c3694324a40"
+    },
+    {
+      "name": "Atlassian Agile Project Management Professional Certificate",
+      "url": "https://www.linkedin.com/learning/certificates/f5265267f7f4e17a98f8f51910c9c317a437312f343c446b4fee6cedc068034b"
+    },
+    {
+      "name": "Microsoft Azure AI Essentials Professional Certificate", 
+      "url": "https://www.linkedin.com/learning/certificates/3c5352582556c206eb2de1287c49e483f95b6c9850467207bd6193bff4a296fa"
+    }
+  ],
+  "programming": [],
+  "ml_ai": [],
+  "web_development": [],
+  "databases": [],
+  "devops_cloud": [],
+  "iot_hardware": [],
+  "soft_skills": []
+}
+,
   "projects": [
     {
-      "title": "Portfolio",
-      "category": "AI/Web Development",
-      "description": "Revolutionary AI-powered portfolio system: edit a single JSON file to get a complete interactive portfolio with an intelligent chatbot. Built with Next.js, React, and TypeScript. Features modern design, dynamic project showcases, and zero code required for updates.",
-      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
+      "title": "QwikPik - AI Shopping Assistant",
+      "category": "Product Management",
+      "description": "End-to-end AI-driven shopping assistant reducing purchase decision time by 40% for items under ₹2,000. Solo PM work from research to live prototype, combining smart search, social proof, and community signals to eliminate decision fatigue on small-ticket purchases.",
+      "techStack": ["AI/ML", "Product Strategy", "User Research", "Voice Search", "Social APIs", "React", "Node.js"],
       "date": "2025",
       "status": "Completed",
       "featured": true,
+      "metrics": [
+        "40% Decision Time Reduction",
+        "30% Engagement Boost via Voice Search",
+        "Top Fellowship Performer",
+        "Live Prototype with Social Integration"
+      ],
       "links": [
         {
-          "name": "Live Site",
-          "url": "https://portfolio.anujjainbatu.tech/"
+          "name": "Live Demo",
+          "url": "https://tiwariayush77.github.io/QwikPik-prototype/"
         },
         {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/portfolio"
+          "name": "Case Study",
+          "url": "#qwikpik-case-study"
         }
       ],
       "images": [
         {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/portfolio/main/assets/portfolio.png",
-          "alt": "Portfolio Homepage"
+          "url": "/projects/qwikpik/qwikpik-prototype.jpg",
+          "alt": "QwikPik AI-powered social shopping scenario",
+          "caption": "QwikPik combines AI recommendations with real-time community polling for shopping confidence."
+        },
+        {
+          "url": "/projects/qwikpik/desktop-homepage.jpg",
+          "alt": "QwikPik desktop web homepage",
+          "caption": "Desktop interface showcasing AI-powered shopping search, trends, polls, and group features."
         }
+      ],
+      "highlights": [
+        "Solo ownership: research → design → development → launch",
+        "User research-driven feature prioritization across 4 key areas",
+        "AI smart search with confidence/trust signals integration",
+        "Voice search MVP driving 30% engagement increase",
+        "Cross-platform social data aggregation and polling system",
+        "Real-time decision support with vibe tags and scenario filters"
+      ],
+      "impact": {
+        "userProblem": "Decision fatigue on purchases under ₹2,000 with overwhelming review noise",
+        "solution": "AI consolidation of reviews + social proof + community signals",
+        "outcomes": "40% faster decisions, increased purchase confidence, top fellowship recognition"
+      },
+      "role": "Solo Product Manager",
+      "duration": "Fellowship Sprint (8 weeks)",
+      "keyFeatures": [
+        "Smart search with AI-powered confidence scoring",
+        "Vibe tags and scenario-based filtering system",
+        "Social polls and community decision support",
+        "Voice search integration with 30% engagement boost",
+        "Multi-platform review aggregation and analysis",
+        "Real-time trending product discovery"
       ]
     },
     {
-      "title": "LeetConnect",
-      "category": "Chrome Extension",
-      "description": "LeetConnect is a Chrome extension that connects you with friends and tracks LeetCode statistics in real-time. Stay motivated by seeing your friends' progress, get notified when they solve new problems, and manage your study group or team’s coding journey together. Features include real-time stats, friend management, auto-refresh, ranking change alerts, notifications, and more.",
-      "techStack": [
-        "JavaScript",
-        "Chrome Extension Manifest V3",
-        "HTML",
-        "CSS",
-        "Chrome Storage API",
-        "Chrome Notifications API",
-        "LeetCode API"
-      ],
-      "date": "2024",
-      "status": "Ongoing",
-      "featured": true,
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/leetconnect"
-        },
-        {
-          "name": "Demo GIF",
-          "url": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/demo-web.gif"
-        }
-      ],
-      "images": [
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/demo-web.gif",
-          "alt": "LeetConnect Extension Gif"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/feature-1.png",
-          "alt": "LeetConnect Extension Demo"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/leetconnect/main/assets-landing/screenshots/feature-2.png",
-          "alt": "LeetConnect Installation Demo"
-        }
-      ]
-    },
-    {
-      "title": "Chess Trace",
-      "category": "IoT System",
-      "description": "Built an IoT-enabled chessboard using ESP32, multiplexers, and 64 reed switches with 98.2% move detection accuracy at 1/8th the commercial cost. Features real-time move logging to Firebase, a web dashboard for live analysis and replay, and Stockfish-powered engine integration. Led a 3-member team through hardware prototyping, firmware development, cloud setup, and user testing with 20+ players.",
-      "techStack": [
-        "ESP32",
-        "C++ (Arduino)",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Firebase",
-        "Stockfish.js",
-        "PCB Design",
-        "IoT",
-        "Cloud Integration",
-        "Hardware Development"
-      ],
+      "title": "Nykaa Virtual Try-On - AR Makeup Experience",
+      "category": "AR/UX Design",
+      "description": "Developed an immersive AR virtual try-on experience for Nykaa's lipstick collection, enabling users to test makeup products digitally before purchase. Built as a learning project to explore AR technology integration, computer vision, and beauty-tech user experience patterns.",
+      "techStack": ["React", "Computer Vision", "AR Technology", "WebRTC", "Canvas API", "JavaScript", "Nykaa Brand Integration"],
       "date": "2025",
-      "status": "Completed",
+      "status": "Demo Available",
       "featured": true,
+      "metrics": [
+        "Real-time AR Lipstick Application",
+        "Multiple Shade Selection Interface",
+        "Seamless Camera Integration",
+        "Nykaa Brand-Authentic Design"
+      ],
       "links": [
         {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/chess-trace"
+          "name": "Live Demo",
+          "url": "https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/94dd467209e65db6a6fa3bd7f3bc2c3c/726def04-370c-4608-8f68-177a08a64b9b/index.html"
+        },
+        {
+          "name": "LinkedIn Demo Video",
+          "url": "https://www.linkedin.com/posts/tiwariya_ur_7/nykaa-activity"
         }
       ],
-      "images": [
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/solution_architecture_dia.jpeg",
-          "alt": "Solution Architecture Diagram"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/product.png",
-          "alt": "Product"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/product-2.png",
-          "alt": "Product"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/detection_technologies_back.png",
-          "alt": "Detection Technology"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/detection_technologies.png",
-          "alt": "Detection Technology"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/UX_UI.jpg",
-          "alt": "Web Dashboard Interface"
-        },
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/chess-trace/main/assets/solution_architecture.jpeg",
-          "alt": "System Architecture Diagram"
-        }
-      ]
+      "images": [],
+      "highlights": [
+        "Self-initiated exploration of AR technology in beauty-tech space",
+        "Built realistic lipstick virtual try-on with camera integration",
+        "Implemented multiple shade selection and real-time application",
+        "Designed authentic Nykaa brand experience with signature pink theme",
+        "Explored computer vision techniques for facial feature detection",
+        "Demonstrated understanding of beauty industry UX patterns"
+      ],
+      "impact": {
+        "learningGoal": "Explore AR technology integration and beauty-tech user experience design",
+        "technicalOutcome": "Functional virtual try-on application with real-time makeup application",
+        "skillsDemonstrated": "AR development, computer vision integration, beauty-tech UX, brand-authentic design"
+      },
+      "role": "Solo Developer & UX Designer",
+      "duration": "Learning Project (2-3 weeks)",
+      "keyFeatures": [
+        "Real-time camera feed integration for live AR experience",
+        "Multiple lipstick shade selection with Nykaa product range",
+        "Computer vision-based lip detection and tracking",
+        "Realistic makeup application with blending and color accuracy",
+        "Nykaa brand-authentic interface design (signature #FF1774 pink)",
+        "Mobile-responsive design optimized for beauty shopping experience"
+      ],
+      "technicalApproach": {
+        "arImplementation": "WebRTC camera integration with Canvas API for real-time makeup overlay",
+        "computerVision": "Facial feature detection for accurate lip positioning and tracking",
+        "designSystem": "Nykaa brand guidelines integration with signature pink theme and beauty-focused UX",
+        "learningFocus": "Understanding AR technology potential for reducing beauty product return rates and enhancing digital shopping confidence"
+      }
     },
     {
-      "title": "Insurance Premium Prediction API",
-      "category": "Backend API",
-      "description": "Designed and implemented a scalable Insurance Premium Prediction API using FastAPI, following industry best practices for modular architecture, input validation, and error handling. The API predicts insurance premium categories based on user input, offers robust documentation via Swagger UI, and includes Docker deployment support. Developed clear project structure, health check endpoints, and seamless integration for production environments.",
-      "techStack": [
-        "Python",
-        "FastAPI",
-        "Pydantic",
-        "Docker",
-        "Machine Learning",
-        "Swagger",
-        "Uvicorn"
-      ],
+      "title": "AI Order Assistant - n8n Workflow Automation",
+      "category": "AI Workflow & Automation",
+      "description": "Built an end-to-end AI workflow automation using n8n.io and Telegram Bot API to demonstrate conversational AI capabilities for e-commerce order management. Created as a learning project to explore workflow orchestration, natural language processing, and chatbot UX design patterns.",
+      "techStack": ["n8n.io", "Telegram Bot API", "AI/NLP Integration", "Workflow Automation", "API Orchestration", "Conversational Design"],
       "date": "2025",
-      "status": "Completed",
+      "status": "Demo Available",
       "featured": true,
+      "metrics": [
+        "6-7 Node Workflow Architecture",
+        "60-70% Potential Query Resolution Efficiency",
+        "Multi-turn Conversation Flow Design",
+        "Intent Recognition & Entity Extraction Implementation"
+      ],
       "links": [
         {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/insurance-premium-prediction-fastapi"
+          "name": "Live Demo",
+          "url": "https://t.me/Gabba77_bot"
         },
         {
-          "name": "Docker Hub",
-          "url": "https://hub.docker.com/r/anujjainbatu/insurance-premium-api"
+          "name": "LinkedIn Demo Video",
+          "url": "https://www.linkedin.com/posts/tiwariayush77_ai-agenticai-n8n-activity-7361762936219910144-x0gZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChHNREBJoo4gMPPmz2awxuTr1X2kRKpUIM"
         },
         {
-          "name": "Live API Docs",
-          "url": "http://51.20.55.205:8000/docs"
+          "name": "Technical Details",
+          "url": "#n8n-workflow-details"
         }
       ],
-      "images": [
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/insurance-premium-prediction-fastapi/main/assets/demo.gif",
-          "alt": "Insurance Premium Prediction API Demo"
-        }
-      ]
+      "images": [],
+      "highlights": [
+        "Self-directed learning project exploring AI workflow automation",
+        "Built complex n8n workflow with 12-15 orchestrated nodes",
+        "Implemented intent recognition and entity extraction for order queries",
+        "Designed multi-turn conversation flows with context persistence",
+        "Created scalable architecture demonstrating production-ready patterns",
+        "Showcased ability to bridge AI capabilities with practical business applications"
+      ],
+      "impact": {
+        "learningGoal": "Explore workflow automation and conversational AI design patterns",
+        "technicalOutcome": "Functional Telegram bot demonstrating AI integration and automation orchestration",
+        "skillsDemonstrated": "End-to-end automation design, AI/NLP implementation, conversational UX, technical architecture"
+      },
+      "role": "Solo Developer & Designer",
+      "duration": "Learning Project (2-3 weeks)",
+      "keyFeatures": [
+        "Natural language processing for order-related queries",
+        "Context-aware conversation management across multiple turns",
+        "Error handling with graceful fallback mechanisms",
+        "Workflow transparency showing automation process steps",
+        "Scalable architecture patterns for e-commerce automation",
+        "Integration demonstration between AI services and messaging platforms"
+      ],
+      "technicalApproach": {
+        "workflowComplexity": "12-15 nodes including triggers, AI processing, data logic, and response formatting",
+        "aiCapabilities": "Intent recognition, entity extraction, context retention, conversation flow management",
+        "architectureDesign": "Modular workflow structure demonstrating production-ready automation patterns",
+        "learningFocus": "Exploring how AI can streamline repetitive business processes through intelligent automation"
+      }
     },
     {
-      "title": "IntelliPrice",
-      "category": "Machine Learning",
-      "description": "IntelliPrice is a machine learning-powered web application that predicts the price of a laptop based on its specifications. Built with Streamlit, it features a clean interface, fast predictions, and easy deployment via Docker. The model uses key attributes like brand, CPU, RAM, storage, GPU, and screen size for accurate real-time price estimates.",
-      "techStack": ["Python", "Streamlit", "scikit-learn", "Docker", "Pandas", "Machine Learning"],
+      "title": "Truecaller One-Tap Verification Feature Analysis",
+      "category": "Product Analysis & GTM Strategy",
+      "description": "In-depth analysis of Truecaller's One-Tap User Verification SDK aimed at enabling frictionless onboarding and OTP-less checkout for mobile-first users, especially in Tier 2/3 markets. Assessed user pain points, business impact, and outlined monetization and co-marketing strategies to accelerate adoption in the Indian e-commerce and fintech ecosystems.",
+      "techStack": ["Product Research", "GTM Strategy", "User Journey Mapping", "Business Analysis", "Competitive Landscape"],
       "date": "2025",
-      "status": "Completed",
+      "status": "Analysis & Strategic Recommendations",
       "featured": true,
+      "metrics": [
+        "25-30% OTP verification drop-off rate in target apps",
+        "Up to 20% increase in user onboarding with SDK integration",
+        "15% uplift in checkout completion rates post-deployment",
+        "30% reduction in RTO fraud losses for partners"
+      ],
       "links": [
         {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/IntelliPrice"
+          "name": "LinkedIn Post",
+          "url": "https://www.linkedin.com/posts/tiwariayush77_one-tap-no-otp-just-trust-thats-the-truecaller-activity-7352955529301807104-7sFZ"
         },
         {
-          "name": "Demo GIF",
-          "url": "https://github.com/anujjainbatu/IntelliPrice/blob/main/assets/demo.gif"
+          "name": "Feature Analysis Deck",
+          "url": "https://pitch.com/v/truecaller-feature-analysis-t6jxzm"
         }
       ],
-      "images": [
-        {
-          "src": "https://github.com/anujjainbatu/IntelliPrice/blob/main/assets/demo.gif?raw=true",
-          "alt": "IntelliPrice App Demo"
-        }
+      "images": [],
+      "highlights": [
+        "Quantified critical friction points causing high drop-offs during OTP verification across Indian digital apps",
+        "Mapped user journey highlighting pain points in Tier 2/3 markets with network and device challenges",
+        "Outlined key business benefits including onboarding uplift, fraud reduction, cost savings, and brand trust",
+        "Presented monetization opportunities leveraging ancillary Truecaller solutions across authentication, user leads, and checkout",
+        "Recommended co-marketing and developer engagement strategies to accelerate ecosystem adoption",
+        "Proposed success metrics to measure impact on conversion, retention, fraud reduction, and operational efficiency"
+      ],
+      "impact": {
+        "businessOutcome": "Strategic roadmap for Truecaller SDK adoption maximizing onboarding, reducing fraud, and boosting partner revenue",
+        "userOutcome": "Enabling seamless, trustworthy authentication experiences improving digital service access and retention",
+        "skillsDemonstrated": "Product research, GTM strategy, business case development, stakeholder alignment"
+      },
+      "role": "Product Analyst & GTM Strategist",
+      "duration": "Strategic Analysis Project (6 weeks)",
+      "keyFeatures": [
+        "User pain-point and drop-off analysis focused on OTP friction and SDK implementation impact",
+        "Business case quantification of fraud, RTO, and cost reduction benefits",
+        "Market opportunity sizing covering e-commerce growth and mobile-first user segments",
+        "Monetization modeling across SDK deployments and ancillary products",
+        "Ecosystem development strategy including hackathons, co-marketing, and partner collaborations",
+        "Defining KPIs for adoption tracking and continuous improvement"
       ]
     },
     {
-      "title": "SpamSense",
-      "category": "NLP System",
-      "description": "SpamSense is an AI-powered tool that predicts whether your marketing emails will land in the inbox or spam folder. Designed for agencies to optimize campaign deliverability before sending, it features a Streamlit-based web interface and a scikit-learn machine learning model trained on real spam datasets.",
-      "techStack": [
-        "Python",
-        "Streamlit",
-        "scikit-learn",
-        "Jupyter Notebook",
-        "Machine Learning",
-        "Heroku"
-      ],
+      "title": "FanCode Playback Continuity & Multi-Device Sync",
+      "category": "Product Strategy & UX",
+      "description": "Led the product strategy and UX design for FanCode's playback continuity and multi-device sync feature, aimed at delivering a seamless, Netflix-level sports viewing experience. Focused on persistent, universally accessible 'Continue Watching' across devices and real-time progress sync, targeting improved retention and engagement for 160M+ monthly users, especially in India's Tier 2/3 markets.",
+      "techStack": ["Product Strategy", "User Journey Mapping", "UX Design", "Cross-Platform Sync", "Mobile & Web"],
       "date": "2025",
-      "status": "Completed",
+      "status": "Strategy & Prototype",
       "featured": true,
+      "metrics": [
+        "50% reduction in registration drop-offs by enabling frictionless onboarding",
+        "~25% decrease in checkout abandonment with universal playback sync",
+        "Real-time session syncing across devices — mobile, web, smart TV",
+        "Enhanced user retention through personalized, persistent continue watching rows"
+      ],
       "links": [
         {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/spamsense"
+          "name": "LinkedIn Post",
+          "url": "https://www.linkedin.com/posts/tiwariayush77_is-fancode-set-to-deliver-netflix-level-sports-activity-7355492308567392256-PHcd"
         },
         {
-          "name": "Demo GIF",
-          "url": "https://github.com/anujjainbatu/spamsense/blob/main/assets/demo.gif"
+          "name": "Check PRD",
+          "url": "https://drive.google.com/file/d/1WmULdZwnDu3RUFlQ5WhRuSqYfNksQ040/view?usp=sharing"
         }
       ],
-      "images": [
-        {
-          "src": "https://raw.githubusercontent.com/anujjainbatu/spamsense/main/assets/demo.gif",
-          "alt": "SpamSense Demo"
-        }
+      "images": [],
+      "highlights": [
+        "Deep analysis of current UX gaps causing fragmented sports viewing journeys",
+        "Designed universal 'Continue Watching' row across mobile, web, and TV platforms",
+        "Mapped user journeys for multi-device synchronization with real-time playback position saving",
+        "Addressed edge cases like network loss, sync failure, profile differentiation for shared accounts",
+        "Focused on ensuring low friction during onboarding and playback resumption to reduce churn",
+        "Defined key success metrics including session duration, churn rates, and sync reliability"
+      ],
+      "impact": {
+        "businessOutcome": "Enhanced retention and session times, enabling FanCode to compete with top OTT platforms",
+        "userOutcome": "Seamless multi-device viewing experience with personalized, persistent playback continuity",
+        "skillsDemonstrated": "End-to-end product strategy, UX design, user journey mapping, stakeholder alignment"
+      },
+      "role": "Product Strategist & UX Lead",
+      "duration": "5 weeks",
+      "keyFeatures": [
+        "Persistent 'Continue Watching' section on all platforms with instant access",
+        "Automatic playback position saving and cross-device sync",
+        "Profile-based experience ensuring accurate progress for shared device users",
+        "Low-latency backend for real-time synchronization",
+        "Fallback states and offline resilience",
+        "UX strategies to increase engagement and reduce friction"
       ]
-    },
-    {
-      "title": "PopcornPicks",
-      "category": "Machine Learning",
-      "description": "PopcornPicks is a movie recommender web app built with Streamlit. Select a movie you like and get personalized recommendations with detailed information and posters. Uses machine learning to suggest similar movies based on your selection. Developed model using movie metadata and similarity matrix.",
-      "techStack": ["Python", "Streamlit", "Pickle", "scikit-learn", "pandas", "Heroku"],
-      "date": "2024",
-      "status": "Completed",
-      "featured": true,
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/popcornpicks"
-        }
-      ],
-      "images": []
-    },
-    {
-      "title": "Pralay Mitra",
-      "category": "AI/Disaster Management",
-      "description": "AI-powered disaster management system to assist government officials during emergencies. Features interactive dashboard, real-time high-risk city alerts, AI chatbot (Gemini API) for response planning, and centralized resources for food, shelter, and medical aid.",
-      "techStack": ["Python", "Django", "JavaScript", "Bootstrap", "FontAwesome", "Gemini API"],
-      "date": "2024",
-      "status": "Completed",
-      "featured": true,
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/Pralay_Mitra"
-        }
-      ],
-      "images": []
-    },
-    {
-      "title": "hideFlare: CDN Obfuscation Detection System",
-      "category": "Cybersecurity Tool",
-      "description": "Python tool to uncover real hosting details of websites protected by Cloudflare. Automates subdomain enumeration, SSL analysis, ASN/org/GeoIP lookups, historical IP resolution, and outputs results for security researchers. Used for SIH 2024 finalist project for MP Police.",
-      "techStack": ["Python", "Subdomain Enumeration", "SSL Analysis", "SecurityTrails API"],
-      "date": "2024",
-      "status": "Completed",
-      "featured": true,
-      "achievements": ["Smart India Hackathon 2024 Finalist"],
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/hideFlare"
-        }
-      ],
-      "images": []
-    },
-    {
-      "title": "Monitoring System for TBFs",
-      "category": "Machine Learning",
-      "description": "Developed a condition monitoring system for Tunnel Booster Fans (TBFs) using machine learning. Jupyter notebooks and ML models for anomaly detection and preventive maintenance based on sensor data.",
-      "techStack": ["Python", "Jupyter Notebook", "Machine Learning", "Data Analysis"],
-      "date": "2024",
-      "status": "Completed",
-      "featured": true,
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/Condition-based-monitoring-and-maintenance-system-for-Tunnel-Booster-Fans--TBFs-"
-        }
-      ],
-      "images": []
-    },
-    {
-      "title": "Python Automation Suite",
-      "category": "Automation",
-      "description": "Delivered 25+ Python automation projects for global clients, including web scraping, API bots, and data pipelines. Built GenAI-powered chatbots and autonomous agents using LangChain, LangGraph, and OpenAI APIs, reducing manual work by 60%.",
-      "techStack": ["Python", "LangChain", "LangGraph", "OpenAI API", "Web Scraping", "Automation"],
-      "date": "2023-Present",
-      "status": "Ongoing",
-      "featured": true,
-      "metrics": ["25+ Projects Delivered", "60% Manual Work Reduction"],
-      "links": [
-        {
-          "name": "Fiverr Profile",
-          "url": "https://www.fiverr.com"
-        },
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu"
-        }
-      ],
-      "images": []
-    },
-    {
-      "title": "Fun With Filters",
-      "category": "Web Development",
-      "description": "A web app where users can upload images and apply a variety of fun image filters, built using JavaScript, HTML, and CSS. Try out creative filters and see instant results in your browser.",
-      "techStack": ["JavaScript", "HTML", "CSS"],
-      "date": "2023",
-      "status": "Completed",
-      "featured": false,
-      "links": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/anujjainbatu/FunWithFilters"
-        }
-      ],
-      "images": []
     }
   ],
   "social": {
-    "linkedin": "https://linkedin.com/in/anujjainbatu",
-    "github": "https://github.com/anujjainbatu",
-    "twitter": "https://x.com/anujainbatu",
-    "kaggle": "https://www.kaggle.com/anujjainbatu",
-    "leetcode": "https://leetcode.com/u/anujjainbatu/",
-    "fiverr": "https://www.fiverr.com"
+    "linkedin": "https://linkedin.com/in/tiwariayush77",
+    "github": "https://github.com/tiwariayush77",
+    "twitter": "https://twitter.com/tiwariayush77",
+    "email": "tiwariayush77@gmail.com"
   },
   "internship": {
     "seeking": true,
-    "duration": "6 months",
-    "startDate": "September 2025",
-    "preferredLocation": "Remote or On-site",
-    "focusAreas": ["AI Development", "Full-stack Development", "IoT Systems", "Machine Learning"],
-    "availability": "Available for immediate start",
-    "workStyle": "Fast learner, team player, problem solver",
-    "goals": "Join an innovative team building AI-powered solutions. I want to contribute to meaningful projects while growing my skills in enterprise-level development."
+    "duration": "Full-time",
+    "startDate": "Immediately Available", 
+    "preferredLocation": "Bengaluru, Mumbai, Gurgaon, or Remote",
+    "focusAreas": ["Product Management", "0→1 Product Development", "Product Strategy", "GTM Strategy", "B2B/B2C Products"],
+    "availability": "Immediately available for full-time opportunities",
+    "workStyle": "Strategic thinker with user-first approach and strong cross-functional leadership",
+    "goals": "Join an innovative product team where I can lead 0→1 initiatives, drive meaningful user engagement, and build products that solve real problems with measurable impact."
   },
   "personality": {
-    "traits": ["passionate", "curious", "determined", "collaborative"],
-    "interests": ["AI/ML", "IoT", "Web Development", "Open Source", "Hackathons"],
+    "traits": ["strategic", "analytical", "user-focused", "results-driven", "collaborative"],
+    "interests": ["Product Strategy", "User Research", "0→1 Development", "FinTech", "EdTech", "B2B SaaS", "Growth Product"],
     "funFacts": [
-      "Smart India Hackathon finalist among 88,000+ teams",
-      "Built 25+ automation projects for global clients",
-      "Love solving complex problems with simple solutions"
+      "Recognized by Truecaller product team for strategic product analysis",
+      "Founded EdTech startup that impacted 50+ students across 10+ career fields",
+      "Drove 30%+ engagement lift in B2C product sprint",
+      "Led 0→1 products across FinTech, EdTech, and B2B spaces",
+      "Product Space Fellowship graduate with proven 0→1 execution"
     ],
-    "workingStyle": "I move fast, learn faster, and love tackling challenging problems",
-    "motivation": "Building technology that makes a real impact on people's lives"
+    "workingStyle": "I think strategically, execute systematically, and always put users first while driving measurable business impact",
+    "motivation": "Building products that create meaningful impact and solve real user problems through data-driven insights and user-centric design"
   },
   "resume": {
-    "title": "Anuj Jain - Resume",
-    "description": "Full-stack Python Developer & AI Engineer | B.Tech IoT Student | SIH 2025 Finalist",
+    "title": "Ayush Tiwari - Product Manager Resume", 
+    "description": "Product Manager | 0→1 Product Strategy Expert | 3+ YOE across FinTech, EdTech & B2B",
     "fileType": "PDF",
-    "lastUpdated": "January 2025",
-    "fileSize": "2.1 MB",
-    "downloadUrl": "/resume.pdf"
+    "lastUpdated": "August 2025",
+    "fileSize": "110 KB", 
+    "downloadUrl": "/Ayush_Tiwari_Resume.pdf"
   },
   "chatbot": {
-    "name": "Anuj",
-    "personality": "casual, enthusiastic, tech-savvy",
-    "tone": "friendly and conversational",
+    "name": "Ayush's Product AI",
+    "personality": "strategic, insightful, user-focused, professional",
+    "tone": "professional yet approachable with strategic depth",
     "language": "english",
-    "responseStyle": "short and interactive",
+    "responseStyle": "thoughtful, strategic, and results-oriented",
     "useEmojis": true,
-    "topics": ["projects", "skills", "experience", "internship", "contact", "fun_facts"]
+    "topics": ["product_management", "0_to_1_experience", "gtm_strategy", "user_research", "product_strategy", "job_opportunities", "fintech_experience", "edtech_experience"]
   },
   "presetQuestions": {
     "me": [
       "Who are you?",
-      "Tell me about yourself",
-      "What's your background?",
-      "What are your passions?",
-      "How did you get started in tech?",
-      "Where do you see yourself in 5 years?"
+      "Tell me about your product management background",
+      "What's your product management philosophy?", 
+      "How did you get into product management?",
+      "What drives you as a PM?",
+      "What's your experience with 0→1 products?"
     ],
     "professional": [
-      "What are your skills?",
+      "What's your product management experience?",
       "Can I see your resume?",
-      "What's your experience?",
-      "Are you looking for internships?",
-      "Am I available for opportunities?",
-      "What makes you a valuable team member?",
-      "Where are you working now?",
-      "Why should I hire you?",
-      "What's your educational background?",
-      "How was your experience working as freelancer?"
+      "Are you looking for PM opportunities?", 
+      "What makes you a strong product manager?",
+      "Tell me about your GTM experience",
+      "How do you approach user research?",
+      "What's your 0→1 product experience?",
+      "Why should we hire you as a PM?",
+      "What's your approach to product strategy?",
+      "How do you measure product success?"
     ],
     "projects": [
-      "What projects are you most proud of?",
-      "What are your projects?",
-      "Tell me about your best project",
-      "What are you working on?"
+      "What's your most impactful product work?",
+      "Tell me about the Truecaller recognition",
+      "How did you achieve 30% engagement lift?",
+      "Walk me through your BrightBunny experience", 
+      "What was your biggest product challenge?",
+      "Tell me about your 0→1 experience at Vance"
     ],
     "contact": [
       "How can I reach you?",
-      "How can I contact you?",
-      "What's your email?",
-      "Where can I find you online?",
-      "What kind of project would make you say 'yes' immediately?",
-      "Where are you located?"
+      "Are you available for opportunities?",
+      "What kind of PM role interests you most?",
+      "Where are you located?",
+      "What's your ideal company culture?",
+      "What type of products excite you?"
     ],
     "fun": [
-      "What are your hobbies?",
-      "Tell me something interesting about you",
-      "What motivates you?"
+      "How do you approach product strategy?",
+      "What's your user research process?",
+      "How do you prioritize features?",
+      "Tell me about your GTM approach",
+      "How do you measure product success?",
+      "What's your framework for 0→1 products?"
     ]
   },
   "meta": {
     "configVersion": "1.0",
-    "lastUpdated": "2025-01-13",
-    "generatedBy": "Anuj Jain",
-    "description": "Complete portfolio configuration for AI-powered portfolio website"
+    "lastUpdated": "2025-08-25",
+    "generatedBy": "PPP Portfolio System",
+    "description": "Complete portfolio configuration for Ayush Tiwari - Product Manager with 3+ YOE in 0→1 product development across FinTech, EdTech, and B2B"
   }
 }

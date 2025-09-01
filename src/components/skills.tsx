@@ -1,151 +1,170 @@
 'use client';
-
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Cpu, PenTool, Users, Database, Cloud, Microchip, Brain } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { getConfig } from '@/lib/config-loader';
+import { Briefcase, Layers3, Cpu, Award, ExternalLink } from 'lucide-react';
 
-const Skills = () => {
-  // Get skills from configuration
+// Animation Variants - Keep original
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.10 } }
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } }
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.98 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.20, ease: 'easeOut' } }
+};
+
+const Skills: React.FC = () => {
   const config = getConfig();
-  
-  // Transform skills data with icons
-  const skillsData = [
-    {
-      category: 'Programming Languages',
-      icon: <Code className="h-5 w-5" />,
-      skills: config.skills.programming,
-      color: 'bg-blue-50 text-blue-600 border border-blue-200',
-    },
-    {
-      category: 'ML/AI Technologies',
-      icon: <Brain className="h-5 w-5" />,
-      skills: config.skills.ml_ai,
-      color: 'bg-purple-50 text-purple-600 border border-purple-200',
-    },
-    {
-      category: 'Web Development',
-      icon: <Cpu className="h-5 w-5" />,
-      skills: config.skills.web_development,
-      color: 'bg-green-50 text-green-600 border border-green-200',
-    },
-    {
-      category: 'Databases',
-      icon: <Database className="h-5 w-5" />,
-      skills: config.skills.databases,
-      color: 'bg-orange-50 text-orange-600 border border-orange-200',
-    },
-    {
-      category: 'DevOps & Cloud',
-      icon: <Cloud className="h-5 w-5" />,
-      skills: config.skills.devops_cloud,
-      color: 'bg-emerald-50 text-emerald-600 border border-emerald-200',
-    },
-    {
-      category: 'IoT & Hardware',
-      icon: <Microchip className="h-5 w-5" />,
-      skills: config.skills.iot_hardware,
-      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200',
-    },
-    {
-      category: 'Soft Skills',
-      icon: <Users className="h-5 w-5" />,
-      skills: config.skills.soft_skills,
-      color: 'bg-amber-50 text-amber-600 border border-amber-200',
-    },
-  ].filter(category => category.skills && category.skills.length > 0);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+  // Helper function to render badges (clickable or static) - Keep original
+  const renderSkillBadge = (skill: any, index: number, sectionKey: string, chipClass: string) => {
+    const isClickable = typeof skill === 'object' && skill.url;
+    const skillName = typeof skill === 'object' ? skill.name : skill;
+    
+    const badgeContent = (
+      <Badge
+        className={[
+          'rounded-xl',
+          'px-3 py-2 md:px-3.5 md:py-2',
+          'text-[13px] md:text-sm font-medium leading-none',
+          chipClass,
+          isClickable ? 'cursor-pointer hover:opacity-80 transition-opacity duration-200' : 'transition-colors duration-200 hover:opacity-90',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-600'
+        ].join(' ')}
+      >
+        {skillName}
+        {isClickable && <ExternalLink className="w-3 h-3 ml-1 inline-block" />}
+      </Badge>
+    );
+
+    if (isClickable) {
+      return (
+        <a
+          href={skill.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+          title={`View ${skillName} certificate`}
+        >
+          {badgeContent}
+        </a>
+      );
+    }
+    return badgeContent;
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+  const categories = [
+    {
+      key: 'product_management',
+      displayName: 'Product Management',
+      icon: <Briefcase className="h-5 w-5 text-blue-500 dark:text-blue-400" />,
+      chip: 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-200 border border-blue-200/60 dark:border-blue-900/40',
+      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
     },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
+    {
+      key: 'business_strategy',
+      displayName: 'Business Strategy',
+      icon: <Layers3 className="h-5 w-5 text-purple-500 dark:text-purple-400" />,
+      chip: 'bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-200 border border-purple-200/60 dark:border-purple-900/40',
+      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
     },
-  };
+    {
+      key: 'technical_skills',
+      displayName: 'Technical Skills',
+      icon: <Cpu className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />,
+      chip: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-200 border border-emerald-200/60 dark:border-emerald-900/40',
+      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
+    },
+    {
+      key: 'certifications',
+      displayName: 'Certifications',
+      icon: <Award className="h-5 w-5 text-amber-500 dark:text-amber-400" />,
+      chip: 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-200 border border-amber-200/60 dark:border-amber-900/40',
+      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
+    }
+  ].map(c => ({
+    ...c,
+    skills: (config.skills?.[c.key] as string[]) || []
+  })).filter(c => c.skills.length > 0);
 
   return (
-    <motion.div
-      initial={{ scale: 0.98, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-      className="mx-auto w-full max-w-5xl rounded-4xl px-4 sm:px-6"
-    >
-      <Card className="w-full border-none px-0 pb-8 sm:pb-12 shadow-none">
-        <CardHeader className="px-0 pb-1">
-          <CardTitle className="text-primary px-0 text-2xl sm:text-3xl lg:text-4xl font-bold">
-            Skills & Expertise
-          </CardTitle>
-        </CardHeader>
+    <section aria-labelledby="skills-title" className="w-full">
+      {/* Header - Keep Original Desktop, Add Mobile Section Header */}
+      <div className="mb-6 flex items-center gap-3 md:hidden">
+        <div className="h-12 w-12 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+          <span className="text-2xl">🧠</span>
+        </div>
+        <h2 id="skills-title-mobile" className="text-2xl font-semibold text-gray-900 dark:text-white">
+          Skills & Expertise
+        </h2>
+      </div>
 
-        <CardContent className="px-0">
+      {/* Desktop Header - Original */}
+      <div className="mb-6 hidden md:flex items-center gap-3">
+        <div className="h-12 w-12 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+          <span className="text-2xl">🧠</span>
+        </div>
+        <h2 id="skills-title" className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+          Skills & Expertise
+        </h2>
+      </div>
+      
+      {/* Skills Categories */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-6"
+      >
+        {categories.map((section) => (
           <motion.div
-            className="space-y-6 sm:space-y-8 px-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            key={section.key}
+            variants={sectionVariants}
+            className={`${section.card} p-6`}
           >
-            {skillsData.map((section, index) => (
-              <motion.div
-                key={index}
-                className="space-y-3 px-0"
-                variants={itemVariants}
-              >
-                <div className="flex items-center gap-2">
-                  {section.icon}
-                  <h3 className="text-accent-foreground text-base sm:text-lg font-semibold">
-                    {section.category}
-                  </h3>
+            {/* Category Header - MOBILE ICON ENHANCEMENT */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-12 w-12 sm:h-9 sm:w-9 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+                {/* Mobile: Larger icons with better contrast */}
+                <div className="block sm:hidden">
+                  {section.key === 'product_management' && <Briefcase className="h-7 w-7 text-blue-600 dark:text-blue-400" />}
+                  {section.key === 'business_strategy' && <Layers3 className="h-7 w-7 text-purple-600 dark:text-purple-400" />}
+                  {section.key === 'technical_skills' && <Cpu className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />}
+                  {section.key === 'certifications' && <Award className="h-7 w-7 text-amber-600 dark:text-amber-400" />}
                 </div>
-
+                {/* Desktop: Original icons */}
+                <div className="hidden sm:block">
+                  {section.icon}
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                {section.displayName}
+              </h3>
+            </div>
+            
+            {/* Skill Badges - Keep Original */}
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              {section.skills.map((skill, idx) => (
                 <motion.div
-                  className="flex flex-wrap gap-1.5 sm:gap-2"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
+                  key={`${section.key}-${typeof skill === 'object' ? skill.name : skill}-${idx}`}
+                  variants={chipVariants}
                 >
-                  {section.skills.map((skill, idx) => (
-                    <motion.div
-                      key={idx}
-                      variants={badgeVariants}
-                      whileHover={{
-                        scale: 1.04,
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      <Badge className={`border px-2 py-1 sm:px-3 sm:py-1.5 font-normal text-xs sm:text-sm`}>
-                        {skill}
-                      </Badge>
-                    </motion.div>
-                  ))}
+                  {renderSkillBadge(skill, idx, section.key, section.chip)}
                 </motion.div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
-        </CardContent>
-      </Card>
-    </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 };
 

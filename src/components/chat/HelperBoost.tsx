@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
@@ -68,17 +69,27 @@ const questionsByCategory = [
     id: 'me',
     name: 'Me',
     icon: UserSearch,
+    color: 'from-cyan-500 to-cyan-600',
+    bgColor: 'bg-cyan-50',
+    borderColor: 'border-cyan-200',
+    hoverColor: 'hover:border-cyan-300',
+    textColor: 'text-cyan-700',
     questions: [
       'Who are you?',
       'What are your passions?',
-      'How did you get started in tech?',
-      'Where do you see yourself in 5 years?',
+      'How did you get started in Product Management?',
+      'Where do you see yourself in Product Domain?',
     ],
   },
   {
     id: 'professional',
     name: 'Professional',
     icon: BriefcaseIcon,
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+    hoverColor: 'hover:border-blue-300',
+    textColor: 'text-blue-700',
     questions: [
       'Can I see your resume?',
       'What makes you a valuable team member?',
@@ -91,21 +102,36 @@ const questionsByCategory = [
     id: 'projects',
     name: 'Projects',
     icon: CodeIcon,
+    color: 'from-green-500 to-green-600',
+    bgColor: 'bg-green-50',
+    borderColor: 'border-green-200',
+    hoverColor: 'hover:border-green-300',
+    textColor: 'text-green-700',
     questions: ['What projects are you most proud of?'],
   },
   {
     id: 'skills',
     name: 'Skills',
     icon: GraduationCapIcon,
+    color: 'from-purple-500 to-purple-600',
+    bgColor: 'bg-purple-50',
+    borderColor: 'border-purple-200',
+    hoverColor: 'hover:border-purple-300',
+    textColor: 'text-purple-700',
     questions: [
       'What are your skills?',
-      'How was your experience working as freelancer?',
+      'How was your experience working as Business Domain?',
     ],
   },
   {
     id: 'contact',
     name: 'Contact & Future',
     icon: MailIcon,
+    color: 'from-amber-500 to-amber-600',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    hoverColor: 'hover:border-amber-300',
+    textColor: 'text-amber-700',
     questions: [
       'How can I reach you?',
       "What kind of project would make you say 'yes' immediately?",
@@ -213,7 +239,7 @@ export default function HelperBoost({
             </button>
           </div>
 
-          {/* HelperBoost Content */}
+          {/* ORIGINAL HelperBoost Content - UNCHANGED */}
           {isVisible && (
             <div className="w-full">
               <div
@@ -247,10 +273,8 @@ export default function HelperBoost({
                           <div className="flex items-center gap-3 text-gray-700">
                             <CircleEllipsis
                               className="h-[20px] w-[18px]"
-                              //style={{ color: '#3B82F6' }}
                               strokeWidth={2}
                             />
-                            {/*<span className="text-sm font-medium">More</span>*/}
                           </div>
                         </motion.div>
                       </Drawer.Trigger>
@@ -265,7 +289,7 @@ export default function HelperBoost({
           )}
         </div>
 
-        {/* Drawer Content */}
+        {/* Enhanced Drawer Content with Contact-Style Hover Effects */}
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 z-100 bg-black/60 backdrop-blur-xs" />
           <Drawer.Content className="fixed right-0 bottom-0 left-0 z-100 mt-24 flex h-[80%] flex-col rounded-t-[10px] bg-gray-100 outline-none lg:h-[60%]">
@@ -284,6 +308,11 @@ export default function HelperBoost({
                         Icon={category.icon}
                         questions={category.questions}
                         onQuestionClick={handleDrawerQuestionClick}
+                        color={category.color}
+                        bgColor={category.bgColor}
+                        borderColor={category.borderColor}
+                        hoverColor={category.hoverColor}
+                        textColor={category.textColor}
                       />
                     ))}
                   </div>
@@ -297,12 +326,17 @@ export default function HelperBoost({
   );
 }
 
-// Component for each category section
+// Component for each category section with Contact-style design
 interface CategorySectionProps {
   name: string;
   Icon: React.ElementType;
   questions: string[];
   onQuestionClick: (question: string) => void;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  hoverColor: string;
+  textColor: string;
 }
 
 function CategorySection({
@@ -310,18 +344,27 @@ function CategorySection({
   Icon,
   questions,
   onQuestionClick,
+  color,
+  bgColor,
+  borderColor,
+  hoverColor,
+  textColor,
 }: CategorySectionProps) {
   return (
-    <div className="space-y-3">
-      <div className="flex items-center gap-2.5 px-1">
-        <Icon className="h-5 w-5" />
-        <Drawer.Title className="text-[22px] font-medium text-gray-900">
+    <div className="space-y-4">
+      {/* Category Header - Contact Style */}
+      <div className="flex items-center gap-3 px-1">
+        <div className={`w-10 h-10 rounded-2xl bg-gradient-to-r ${color} flex items-center justify-center shadow-sm`}>
+          <Icon className="h-5 w-5 text-white" />
+        </div>
+        <Drawer.Title className={`text-xl font-semibold ${textColor}`}>
           {name}
         </Drawer.Title>
       </div>
 
       <Separator className="my-4" />
 
+      {/* Questions with Contact-Style Cards and Hover Effects */}
       <div className="space-y-3">
         {questions.map((question, index) => (
           <QuestionItem
@@ -329,6 +372,10 @@ function CategorySection({
             question={question}
             onClick={() => onQuestionClick(question)}
             isSpecial={specialQuestions.includes(question)}
+            bgColor={bgColor}
+            borderColor={borderColor}
+            hoverColor={hoverColor}
+            textColor={textColor}
           />
         ))}
       </div>
@@ -336,57 +383,60 @@ function CategorySection({
   );
 }
 
-// Component for each question item with animated chevron
+// Component for each question item with CONTACT-STYLE hover effects
 interface QuestionItemProps {
   question: string;
   onClick: () => void;
   isSpecial: boolean;
+  bgColor: string;
+  borderColor: string;
+  hoverColor: string;
+  textColor: string;
 }
 
-function QuestionItem({ question, onClick, isSpecial }: QuestionItemProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
+function QuestionItem({ 
+  question, 
+  onClick, 
+  isSpecial, 
+  bgColor, 
+  borderColor, 
+  hoverColor, 
+  textColor 
+}: QuestionItemProps) {
   return (
     <motion.button
       className={cn(
-        'flex w-full items-center justify-between rounded-[10px]',
-        'text-md px-6 py-4 text-left font-normal',
-        'transition-all',
+        'group relative flex w-full items-center justify-between rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
+        'text-sm px-6 py-4 text-left font-medium',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
-        isSpecial ? 'bg-black' : 'bg-[#F7F8F9]'
+        isSpecial 
+          ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white border-0 hover:from-purple-600 hover:to-blue-600' 
+          : `${bgColor} dark:bg-gray-800 border-2 ${borderColor} dark:border-gray-700 ${hoverColor} dark:hover:border-blue-600`
       )}
       onClick={onClick}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      whileHover={{
-        backgroundColor: isSpecial ? undefined : '#F0F0F2',
-      }}
-      whileTap={{
-        scale: 0.98,
-        backgroundColor: isSpecial ? undefined : '#E8E8EA',
-      }}
+      // CONTACT-STYLE hover effects
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
       <div className="flex items-center">
-        {isSpecial && <Sparkles className="mr-2 h-4 w-4 text-white" />}
-        <span className={isSpecial ? 'font-medium text-white' : ''}>
+        {isSpecial && <Sparkles className="mr-3 h-5 w-5 text-white" />}
+        <span className={cn(
+          'font-medium group-hover:text-blue-500 transition-colors duration-300',
+          isSpecial ? 'text-white group-hover:text-white' : `${textColor} dark:text-white`
+        )}>
           {question}
         </span>
       </div>
-      <motion.div
-        animate={{ x: isHovered ? 4 : 0 }}
-        transition={{
-          type: 'spring',
-          stiffness: 400,
-          damping: 25,
-        }}
-      >
+      
+      {/* CONTACT-STYLE animated chevron */}
+      <div className="inline-flex items-center text-blue-500 font-medium text-sm">
         <ChevronRight
           className={cn(
-            'h-5 w-5 shrink-0',
-            isSpecial ? 'text-white' : 'text-primary'
+            'h-5 w-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300',
+            isSpecial ? 'text-white' : `${textColor} dark:text-gray-300`
           )}
         />
-      </motion.div>
+      </div>
     </motion.button>
   );
 }
