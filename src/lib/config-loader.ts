@@ -17,6 +17,7 @@ try {
       location: 'Unknown',
       title: 'Error Loading Config',
       email: 'error@example.com',
+      phone: 'N/A',
       handle: '@error',
       bio: 'Configuration file could not be loaded',
       avatar: '/placeholder.jpg',
