@@ -28,7 +28,7 @@ export function Resume() {
         className="group relative overflow-hidden rounded-xl bg-accent p-0 transition-all duration-300 mb-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.0, ease: 'easeOut' }}
+       transition={{ duration: 0.5, ease: 'easeOut' as any }}
       >
         {/* Details area */}
         <div className="p-5">
