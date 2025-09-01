@@ -208,7 +208,7 @@ export default function AllProjects() {
     visible: { 
       opacity: 1, 
       scale: 1,
-      transition: { type: "spring", duration: 0.5 }
+       transition: { type: "spring" as const, duration: 0.5 }
     },
     exit: { 
       opacity: 0, 
