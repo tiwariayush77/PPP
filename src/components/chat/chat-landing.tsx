@@ -61,16 +61,10 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     },
   };
 
+  // Fixed: Remove transition from variant and use simpler structure
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeInOut" as any, // ✅ Fixed: Use string easing instead of number array
-      },
-    },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -81,7 +75,11 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
       variants={containerVariants}
     >
       {/* Welcome message - Compact */}
-      <motion.div className="mb-6 text-center" variants={itemVariants}>
+      <motion.div 
+        className="mb-6 text-center" 
+        variants={itemVariants}
+        transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+      >
         <h2 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
           I'm Ayush's Digital Twin
         </h2>
@@ -91,7 +89,11 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
       </motion.div>
 
       {/* Available for Opportunities Button - Fixed question text */}
-      <motion.div className="mb-6" variants={itemVariants}>
+      <motion.div 
+        className="mb-6" 
+        variants={itemVariants}
+        transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+      >
         <motion.button
           onClick={() => handleQuestionClick('Are You available for opportunities?')}
           className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm"
@@ -155,6 +157,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
               className={`${colors.bg} ${colors.hover} ${colors.border} group flex w-full items-center rounded-xl border p-4 shadow-md hover:shadow-lg transition-all duration-300`}
               onClick={() => handleQuestionClick(question.text)}
               variants={itemVariants}
+              transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
