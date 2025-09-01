@@ -154,7 +154,7 @@ const Skills: React.FC = () => {
             <div className="flex flex-wrap gap-2 md:gap-3">
               {section.skills.map((skill, idx) => (
                 <motion.div
-                  key={`${section.key}-${typeof skill === 'object' ? skill.name : skill}-${idx}`}
+                key={`${section.key}-${typeof skill === 'object' ? (skill as any).name : skill}-${idx}`}
                   variants={chipVariants}
                 >
                   {renderSkillBadge(skill, idx, section.key, section.chip)}
