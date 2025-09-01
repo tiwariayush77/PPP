@@ -4,27 +4,50 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Target, BarChart3, TrendingUp, Rocket, Building2, Smartphone, 
   Lightbulb, Zap, Users, Globe, Heart, Crown,
-  ExternalLink, Eye, X, Calendar, Award, Code2 
+  ExternalLink, Eye, X 
 } from 'lucide-react';
 import { getConfig } from '@/lib/config-loader';
-import Image from 'next/image';
+
+// ✅ ADD: Proper TypeScript interface for Project
+interface Project {
+  title: string;
+  category: string;
+  description: string;
+  date: string;
+  techStack: string[];
+  metrics?: string[];
+  links?: Array<{
+    name: string;
+    url: string;
+  }>;
+  images: Array<{
+    src: string;
+    alt: string;
+  }>;
+}
+
+// ✅ ADD: Type definition for project symbols
+interface ProjectSymbolConfig {
+  icon: React.ComponentType<any>;
+  gradient: string;
+  bgColor: string;
+}
 
 export default function AllProjects() {
   const config = getConfig();
   const projects = config.projects || [];
-  const [selectedProject, setSelectedProject] = useState(null);
+  
+  // ✅ FIXED: Properly typed state with null safety
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // UNIQUE SYMBOL FOR EACH PROJECT TILE (No duplicates!) - WITH PROPER TYPING
-  const getUniqueProjectSymbol = (projectTitle: string, category: string, index: number) => {
-    // Define unique symbol combinations for each potential project - FIXED WITH STRING INDEX SIGNATURE
-    const projectSymbols: { 
-      [key: string]: { 
-        icon: React.ComponentType<any>; 
-        gradient: string; 
-        bgColor: string; 
-      } 
-    } = {
-      // Product Management projects - distinct icons
+  // ✅ FIXED: Properly typed function with return type
+  const getUniqueProjectSymbol = (
+    projectTitle: string, 
+    category: string, 
+    index: number
+  ): ProjectSymbolConfig => {
+    // ✅ FIXED: String index signature with proper typing
+    const projectSymbols: { [key: string]: ProjectSymbolConfig } = {
       'B2C Product Sprint - Truecaller Recognition': { 
         icon: Target, 
         gradient: 'from-blue-500 to-cyan-500',
@@ -50,15 +73,11 @@ export default function AllProjects() {
         gradient: 'from-pink-500 to-rose-500',
         bgColor: 'group-hover:border-pink-300 dark:group-hover:border-pink-600'
       },
-      
-      // Entrepreneurship projects - distinct icons
       'BrightBunny - EdTech Career Discovery Platform': { 
         icon: Lightbulb, 
         gradient: 'from-orange-500 to-red-500',
         bgColor: 'group-hover:border-orange-300 dark:group-hover:border-orange-600'
       },
-      
-      // Data Analytics projects - distinct icons  
       'Customer Behavior Analytics Dashboard': { 
         icon: BarChart3, 
         gradient: 'from-indigo-500 to-purple-500',
@@ -69,8 +88,6 @@ export default function AllProjects() {
         gradient: 'from-yellow-500 to-orange-500',
         bgColor: 'group-hover:border-yellow-300 dark:group-hover:border-yellow-600'
       },
-      
-      // Growth & Strategy projects - distinct icons
       'Market Expansion Strategy': { 
         icon: Globe, 
         gradient: 'from-emerald-500 to-green-500',
@@ -81,43 +98,31 @@ export default function AllProjects() {
         gradient: 'from-teal-500 to-cyan-500',
         bgColor: 'group-hover:border-teal-300 dark:group-hover:border-teal-600'
       },
-      
-      // SaaS/B2B projects - distinct icons
       'Enterprise Dashboard Redesign': { 
         icon: Building2, 
         gradient: 'from-slate-500 to-gray-600',
         bgColor: 'group-hover:border-slate-300 dark:group-hover:border-slate-600'
       },
-      
-      // Mobile/App projects - distinct icons
       'Mobile App User Experience': { 
         icon: Smartphone, 
         gradient: 'from-pink-500 to-rose-500',
         bgColor: 'group-hover:border-pink-300 dark:group-hover:border-pink-600'
       },
-      
-      // FinTech projects - distinct icons
       'Vance Inc. - FinTech B2B Pipeline Development': {
         icon: Building2,
         gradient: 'from-indigo-500 to-blue-500', 
         bgColor: 'group-hover:border-indigo-300 dark:group-hover:border-indigo-600'
       },
-      
-      // WebMobi project - distinct icon
       'WebMobi - Customer Engagement Optimization': {
         icon: TrendingUp,
         gradient: 'from-emerald-500 to-teal-500',
         bgColor: 'group-hover:border-emerald-300 dark:group-hover:border-emerald-600'  
       },
-      
-      // Exampeer project - distinct icon
       'Exampeer - Market Research & UX Strategy': {
         icon: BarChart3,
         gradient: 'from-indigo-500 to-purple-500',
         bgColor: 'group-hover:border-indigo-300 dark:group-hover:border-indigo-600'
       },
-      
-      // Additional unique icons for any other projects
       'Premium Feature Strategy': { 
         icon: Crown, 
         gradient: 'from-amber-500 to-yellow-500',
@@ -130,19 +135,13 @@ export default function AllProjects() {
       }
     };
 
-    // If exact title match found, use it
+    // Safe property access with proper return type
     if (projectSymbols[projectTitle]) {
       return projectSymbols[projectTitle];
     }
 
-    // Fallback: category-based symbols with index variation to ensure uniqueness
-    const categorySymbols: { 
-      [key: string]: Array<{ 
-        icon: React.ComponentType<any>; 
-        gradient: string; 
-        bgColor: string; 
-      }> 
-    } = {
+    // ✅ FIXED: Fallback category symbols with proper typing
+    const categorySymbols: { [key: string]: ProjectSymbolConfig[] } = {
       'Product Management': [
         { icon: Target, gradient: 'from-blue-500 to-cyan-500', bgColor: 'group-hover:border-blue-300 dark:group-hover:border-blue-600' },
         { icon: Zap, gradient: 'from-violet-500 to-purple-500', bgColor: 'group-hover:border-violet-300 dark:group-hover:border-violet-600' },
@@ -183,12 +182,11 @@ export default function AllProjects() {
       ]
     };
 
-    // Get symbols for category, use index to ensure uniqueness
     const categoryOptions = categorySymbols[category] || categorySymbols['Product Management'];
     return categoryOptions[index % categoryOptions.length];
   };
 
-  // Animation variants matching Contact/Availability sections
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -202,13 +200,13 @@ export default function AllProjects() {
     visible: { opacity: 1, y: 0 }
   };
 
-  // Modal animation variants
+  // ✅ FIXED: Modal variants with proper type casting
   const modalVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
       opacity: 1, 
       scale: 1,
-       transition: { type: "spring" as const, duration: 0.5 }
+      transition: { type: "spring" as const, duration: 0.5 }
     },
     exit: { 
       opacity: 0, 
@@ -217,7 +215,8 @@ export default function AllProjects() {
     }
   };
 
-  const openProjectModal = (project: any) => setSelectedProject(project);
+  // ✅ FIXED: Properly typed handler functions
+  const openProjectModal = (project: Project) => setSelectedProject(project);
   const closeModal = () => setSelectedProject(null);
 
   return (
@@ -254,15 +253,15 @@ export default function AllProjects() {
             </motion.p>
           </motion.div>
 
-          {/* Projects Grid - UNIQUE SYMBOL FOR EACH TILE */}
+          {/* Projects Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {projects.map((project: any, index: number) => {
+            {projects.map((project: Project, index: number) => {
               const symbolConfig = getUniqueProjectSymbol(project.title, project.category, index);
               const IconComponent = symbolConfig.icon;
               
               return (
                 <motion.div
-                  key={index}
+                  key={`project-${index}`}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
@@ -275,26 +274,21 @@ export default function AllProjects() {
                     className={`w-full h-80 p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 ${symbolConfig.bgColor} flex flex-col items-center cursor-pointer`}
                     onClick={() => openProjectModal(project)}
                   >
-                    {/* UNIQUE Professional Lucide Icon for Each Tile */}
                     <div className="flex-1 flex flex-col items-center justify-center text-center">
                       <div className={`w-14 h-14 mb-4 bg-gradient-to-r ${symbolConfig.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
                         <IconComponent className="w-7 h-7 text-white" strokeWidth={2} />
                       </div>
                       
-                      {/* Project Name - PROMINENT like Availability Cards */}
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors text-center">
                         {project.title}
                       </h3>
                       
-                      {/* Category - Subtle */}
                       <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed px-2 mb-4">
                         {project.category}
                       </p>
                     </div>
 
-                    {/* Minimal CTAs at Bottom */}
                     <div className="flex items-center justify-center gap-6 mt-4">
-                      {/* Live Demo - Minimal Icon */}
                       {project.links && project.links.length > 0 && (
                         <motion.a
                           href={project.links[0].url}
@@ -302,7 +296,7 @@ export default function AllProjects() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          onClick={(e: any) => e.stopPropagation()}
+                          onClick={(e: React.MouseEvent) => e.stopPropagation()}
                           className="inline-flex items-center text-blue-500 font-medium text-sm hover:text-blue-600 transition-colors"
                           title="View Live Demo"
                         >
@@ -311,7 +305,6 @@ export default function AllProjects() {
                         </motion.a>
                       )}
                       
-                      {/* Walk-through - Minimal Icon */}
                       <div className="inline-flex items-center text-gray-500 font-medium text-sm">
                         <Eye className="w-4 h-4 mr-1" />
                         Details
@@ -325,7 +318,7 @@ export default function AllProjects() {
         </div>
       </section>
 
-      {/* Modal remains the same */}
+      {/* ✅ FIXED: Modal with safe property access */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -341,20 +334,20 @@ export default function AllProjects() {
               animate="visible"
               exit="exit"
               className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
-              onClick={(e: any) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
-              {/* Modal header */}
+              {/* Modal header with safe property access */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 bg-gradient-to-r ${getUniqueProjectSymbol(selectedProject.title, selectedProject.category, 0).gradient} rounded-xl flex items-center justify-center`}>
-                    {React.createElement(getUniqueProjectSymbol(selectedProject.title, selectedProject.category, 0).icon, {
+                  <div className={`w-10 h-10 bg-gradient-to-r ${getUniqueProjectSymbol(selectedProject?.title || '', selectedProject?.category || '', 0).gradient} rounded-xl flex items-center justify-center`}>
+                    {React.createElement(getUniqueProjectSymbol(selectedProject?.title || '', selectedProject?.category || '', 0).icon, {
                       className: "w-5 h-5 text-white",
                       strokeWidth: 2
                     })}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{selectedProject.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{selectedProject.category} • {selectedProject.date}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{selectedProject?.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{selectedProject?.category} • {selectedProject?.date}</p>
                   </div>
                 </div>
                 <button
@@ -365,19 +358,17 @@ export default function AllProjects() {
                 </button>
               </div>
 
-              {/* Modal content */}
+              {/* Modal content with safe property access */}
               <div className="p-6 overflow-y-auto max-h-[70vh]">
                 <div className="space-y-6">
-                  {/* Description */}
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Overview</h4>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {selectedProject.description}
+                      {selectedProject?.description}
                     </p>
                   </div>
 
-                  {/* Metrics */}
-                  {selectedProject.metrics && selectedProject.metrics.length > 0 && (
+                  {selectedProject?.metrics && selectedProject.metrics.length > 0 && (
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Metrics</h4>
                       <div className="grid grid-cols-2 gap-3">
@@ -390,11 +381,10 @@ export default function AllProjects() {
                     </div>
                   )}
 
-                  {/*Skills / Tools Used */}
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Skills / Tools Used</h4>
                     <div className="flex flex-wrap gap-2">
-                      {selectedProject.techStack.map((tech: string, index: number) => (
+                      {selectedProject?.techStack?.map((tech: string, index: number) => (
                         <span
                           key={index}
                           className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full text-sm font-medium"
@@ -405,8 +395,7 @@ export default function AllProjects() {
                     </div>
                   </div>
 
-                  {/* Links */}
-                  {selectedProject.links && selectedProject.links.length > 0 && (
+                  {selectedProject?.links && selectedProject.links.length > 0 && (
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Links</h4>
                       <div className="flex gap-3">
