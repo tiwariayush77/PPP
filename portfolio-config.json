@@ -20,6 +20,7 @@
       "graduationDate": "January 2022"
     },
     "achievements": [
+      "🏆 Capstone Project Winner - SonyLIV Enhanced (2025)",
       "Product Management Fellow at Product Space (2025)",
       "Recognition from Truecaller product team for strategic execution",
       "Led 0→1 products with 30%+ engagement lift and 20% conversion boost",
@@ -32,7 +33,7 @@
       "position": "Product Management Fellow",
       "type": "Fellowship",
       "duration": "June 2025 - Current",
-      "description": "Cohort-based PM fellowship focused on 0→1 execution. Led 2 product sprints (B2C & SaaS) from research to GTM; one solution earned recognition from Truecaller's product team for strategy and execution, driving 30%+ engagement lift.",
+      "description": "Cohort-based PM fellowship focused on 0→1 execution. Led 2 product sprints (B2C & SaaS) from research to GTM; one solution earned recognition from Truecaller's product team for strategy and execution, driving 30%+ engagement lift. Won capstone project with SonyLIV Enhanced streaming platform solution.",
       "technologies": ["Product Strategy", "User Research", "GTM", "0→1 Development", "B2C", "SaaS"]
     },
     {
@@ -60,54 +61,83 @@
       "technologies": ["Market Research", "User Research", "Competitor Analysis", "UX Strategy", "Conversion Optimization"]
     }
   ],
- "skills": {
-  "product_management": [
-    "0→1 Product Development",
-    "Product Strategy",
-    "User Research & Insights",
-    "GTM Strategy & Execution",
-    "Product-Market Fit",
-    "Cross-functional Leadership"
-  ],
-  "business_strategy": [
-    "Go-to-Market Strategy",
-    "Competitive Analysis", 
-    "Business Development",
-    "Market Research",
-    "User Persona Development",
-    "B2B Sales Strategy"
-  ],
-  "technical_skills": [
-    "API Integration Understanding",
-    "Technical Product Management",
-    "Data-Driven Decision Making",
-    "User Journey Mapping", 
-    "Wireframing & Prototyping"
-  ],
+  "skills": {
+    "programming": [],
+    "ml_ai": [],
+    "web_development": [],
+    "databases": [],
+    "devops_cloud": [],
+    "iot_hardware": [],
+    "soft_skills": ["Problem Solving", "Strategic Thinking", "User Research", "Cross-functional Leadership", "Data Analysis", "Project Management"]
+  },
   "certifications": [
     {
       "name": "Aha! Product Management Professional Certificate",
-      "url": "https://www.linkedin.com/learning/certificates/d66054295450d02fd23c43cefdf775cccf3df7ac69fb384cccb38c3694324a40"
+      "issuer": "LinkedIn Learning",
+      "year": "2025"
     },
     {
       "name": "Atlassian Agile Project Management Professional Certificate",
-      "url": "https://www.linkedin.com/learning/certificates/f5265267f7f4e17a98f8f51910c9c317a437312f343c446b4fee6cedc068034b"
+      "issuer": "LinkedIn Learning",
+      "year": "2025"
     },
     {
-      "name": "Microsoft Azure AI Essentials Professional Certificate", 
-      "url": "https://www.linkedin.com/learning/certificates/3c5352582556c206eb2de1287c49e483f95b6c9850467207bd6193bff4a296fa"
+      "name": "Microsoft Azure AI Essentials Professional Certificate",
+      "issuer": "LinkedIn Learning",
+      "year": "2025"
     }
   ],
-  "programming": [],
-  "ml_ai": [],
-  "web_development": [],
-  "databases": [],
-  "devops_cloud": [],
-  "iot_hardware": [],
-  "soft_skills": []
-}
-,
   "projects": [
+    {
+      "title": "🏆 SonyLIV Enhanced - Capstone Winner",
+      "category": "Product Strategy & UX Design",
+      "description": "Won capstone competition by solving SonyLIV's critical 7-day user retention problem through innovative mood-based personalization and Netflix-quality user experience. Developed comprehensive streaming platform with AI-powered content discovery, cultural intelligence, and seamless user onboarding flow that projected 40%+ improvement in retention metrics.",
+      "techStack": ["Product Strategy", "UI/UX Design", "User Research", "Prototyping", "Lovable", "Figma", "Cultural Intelligence", "AI Personalization"],
+      "date": "2025",
+      "status": "Capstone Winner",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Demo",
+          "url": "https://liv-stream-zen.lovable.app"
+        },
+        {
+          "name": "Strategy Deck",
+          "url": "https://drive.google.com/file/d/1NQZ_DXpeD-4KIC_PfPeixp4ucupFiZ5O/view?usp=sharing"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/sonyliv/homepage.jpg",
+          "alt": "SonyLIV Enhanced Homepage with mood-based personalization"
+        },
+        {
+          "src": "/projects/sonyliv/onboarding.jpg", 
+          "alt": "SonyLIV Enhanced Onboarding Flow"
+        }
+      ]
+    },
+    {
+      "title": "Blinkit Product Strategy - Retention Framework",
+      "category": "Product Strategy & Market Analysis",
+      "description": "Comprehensive product strategy assignment analyzing Blinkit's competitive positioning in quick commerce and developing actionable retention frameworks. Created data-driven recommendations for customer lifetime value optimization, market expansion strategies, and user engagement mechanisms targeting improved retention metrics.",
+      "techStack": ["Product Strategy", "Market Analysis", "User Research", "Business Intelligence", "Competitive Analysis", "Retention Strategy"],
+      "date": "2025",
+      "status": "Strategic Analysis Complete",
+      "featured": true,
+      "links": [
+        {
+          "name": "Strategy Presentation",
+          "url": "#blinkit-strategy-deck"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/blinkit/strategy-framework.jpg",
+          "alt": "Blinkit Product Strategy Framework"
+        }
+      ]
+    },
     {
       "title": "QwikPik - AI Shopping Assistant",
       "category": "Product Management",
@@ -116,12 +146,6 @@
       "date": "2025",
       "status": "Completed",
       "featured": true,
-      "metrics": [
-        "40% Decision Time Reduction",
-        "30% Engagement Boost via Voice Search",
-        "Top Fellowship Performer",
-        "Live Prototype with Social Integration"
-      ],
       "links": [
         {
           "name": "Live Demo",
@@ -134,38 +158,9 @@
       ],
       "images": [
         {
-          "url": "/projects/qwikpik/qwikpik-prototype.jpg",
-          "alt": "QwikPik AI-powered social shopping scenario",
-          "caption": "QwikPik combines AI recommendations with real-time community polling for shopping confidence."
-        },
-        {
-          "url": "/projects/qwikpik/desktop-homepage.jpg",
-          "alt": "QwikPik desktop web homepage",
-          "caption": "Desktop interface showcasing AI-powered shopping search, trends, polls, and group features."
+          "src": "/projects/qwikpik/homepage.jpg",
+          "alt": "QwikPik AI Shopping Assistant"
         }
-      ],
-      "highlights": [
-        "Solo ownership: research → design → development → launch",
-        "User research-driven feature prioritization across 4 key areas",
-        "AI smart search with confidence/trust signals integration",
-        "Voice search MVP driving 30% engagement increase",
-        "Cross-platform social data aggregation and polling system",
-        "Real-time decision support with vibe tags and scenario filters"
-      ],
-      "impact": {
-        "userProblem": "Decision fatigue on purchases under ₹2,000 with overwhelming review noise",
-        "solution": "AI consolidation of reviews + social proof + community signals",
-        "outcomes": "40% faster decisions, increased purchase confidence, top fellowship recognition"
-      },
-      "role": "Solo Product Manager",
-      "duration": "Fellowship Sprint (8 weeks)",
-      "keyFeatures": [
-        "Smart search with AI-powered confidence scoring",
-        "Vibe tags and scenario-based filtering system",
-        "Social polls and community decision support",
-        "Voice search integration with 30% engagement boost",
-        "Multi-platform review aggregation and analysis",
-        "Real-time trending product discovery"
       ]
     },
     {
@@ -176,52 +171,18 @@
       "date": "2025",
       "status": "Demo Available",
       "featured": true,
-      "metrics": [
-        "Real-time AR Lipstick Application",
-        "Multiple Shade Selection Interface",
-        "Seamless Camera Integration",
-        "Nykaa Brand-Authentic Design"
-      ],
       "links": [
         {
           "name": "Live Demo",
           "url": "https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/94dd467209e65db6a6fa3bd7f3bc2c3c/726def04-370c-4608-8f68-177a08a64b9b/index.html"
-        },
-        {
-          "name": "LinkedIn Demo Video",
-          "url": "https://www.linkedin.com/posts/tiwariya_ur_7/nykaa-activity"
         }
       ],
-      "images": [],
-      "highlights": [
-        "Self-initiated exploration of AR technology in beauty-tech space",
-        "Built realistic lipstick virtual try-on with camera integration",
-        "Implemented multiple shade selection and real-time application",
-        "Designed authentic Nykaa brand experience with signature pink theme",
-        "Explored computer vision techniques for facial feature detection",
-        "Demonstrated understanding of beauty industry UX patterns"
-      ],
-      "impact": {
-        "learningGoal": "Explore AR technology integration and beauty-tech user experience design",
-        "technicalOutcome": "Functional virtual try-on application with real-time makeup application",
-        "skillsDemonstrated": "AR development, computer vision integration, beauty-tech UX, brand-authentic design"
-      },
-      "role": "Solo Developer & UX Designer",
-      "duration": "Learning Project (2-3 weeks)",
-      "keyFeatures": [
-        "Real-time camera feed integration for live AR experience",
-        "Multiple lipstick shade selection with Nykaa product range",
-        "Computer vision-based lip detection and tracking",
-        "Realistic makeup application with blending and color accuracy",
-        "Nykaa brand-authentic interface design (signature #FF1774 pink)",
-        "Mobile-responsive design optimized for beauty shopping experience"
-      ],
-      "technicalApproach": {
-        "arImplementation": "WebRTC camera integration with Canvas API for real-time makeup overlay",
-        "computerVision": "Facial feature detection for accurate lip positioning and tracking",
-        "designSystem": "Nykaa brand guidelines integration with signature pink theme and beauty-focused UX",
-        "learningFocus": "Understanding AR technology potential for reducing beauty product return rates and enhancing digital shopping confidence"
-      }
+      "images": [
+        {
+          "src": "/projects/nykaa/ar-experience.jpg",
+          "alt": "Nykaa AR Virtual Try-On Experience"
+        }
+      ]
     },
     {
       "title": "AI Order Assistant - n8n Workflow Automation",
@@ -231,56 +192,22 @@
       "date": "2025",
       "status": "Demo Available",
       "featured": true,
-      "metrics": [
-        "6-7 Node Workflow Architecture",
-        "60-70% Potential Query Resolution Efficiency",
-        "Multi-turn Conversation Flow Design",
-        "Intent Recognition & Entity Extraction Implementation"
-      ],
       "links": [
         {
           "name": "Live Demo",
           "url": "https://t.me/Gabba77_bot"
         },
         {
-          "name": "LinkedIn Demo Video",
-          "url": "https://www.linkedin.com/posts/tiwariayush77_ai-agenticai-n8n-activity-7361762936219910144-x0gZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChHNREBJoo4gMPPmz2awxuTr1X2kRKpUIM"
-        },
-        {
           "name": "Technical Details",
           "url": "#n8n-workflow-details"
         }
       ],
-      "images": [],
-      "highlights": [
-        "Self-directed learning project exploring AI workflow automation",
-        "Built complex n8n workflow with 12-15 orchestrated nodes",
-        "Implemented intent recognition and entity extraction for order queries",
-        "Designed multi-turn conversation flows with context persistence",
-        "Created scalable architecture demonstrating production-ready patterns",
-        "Showcased ability to bridge AI capabilities with practical business applications"
-      ],
-      "impact": {
-        "learningGoal": "Explore workflow automation and conversational AI design patterns",
-        "technicalOutcome": "Functional Telegram bot demonstrating AI integration and automation orchestration",
-        "skillsDemonstrated": "End-to-end automation design, AI/NLP implementation, conversational UX, technical architecture"
-      },
-      "role": "Solo Developer & Designer",
-      "duration": "Learning Project (2-3 weeks)",
-      "keyFeatures": [
-        "Natural language processing for order-related queries",
-        "Context-aware conversation management across multiple turns",
-        "Error handling with graceful fallback mechanisms",
-        "Workflow transparency showing automation process steps",
-        "Scalable architecture patterns for e-commerce automation",
-        "Integration demonstration between AI services and messaging platforms"
-      ],
-      "technicalApproach": {
-        "workflowComplexity": "12-15 nodes including triggers, AI processing, data logic, and response formatting",
-        "aiCapabilities": "Intent recognition, entity extraction, context retention, conversation flow management",
-        "architectureDesign": "Modular workflow structure demonstrating production-ready automation patterns",
-        "learningFocus": "Exploring how AI can streamline repetitive business processes through intelligent automation"
-      }
+      "images": [
+        {
+          "src": "/projects/n8n/workflow-demo.jpg",
+          "alt": "n8n AI Workflow Automation"
+        }
+      ]
     },
     {
       "title": "Truecaller One-Tap Verification Feature Analysis",
@@ -290,12 +217,6 @@
       "date": "2025",
       "status": "Analysis & Strategic Recommendations",
       "featured": true,
-      "metrics": [
-        "25-30% OTP verification drop-off rate in target apps",
-        "Up to 20% increase in user onboarding with SDK integration",
-        "15% uplift in checkout completion rates post-deployment",
-        "30% reduction in RTO fraud losses for partners"
-      ],
       "links": [
         {
           "name": "LinkedIn Post",
@@ -306,29 +227,11 @@
           "url": "https://pitch.com/v/truecaller-feature-analysis-t6jxzm"
         }
       ],
-      "images": [],
-      "highlights": [
-        "Quantified critical friction points causing high drop-offs during OTP verification across Indian digital apps",
-        "Mapped user journey highlighting pain points in Tier 2/3 markets with network and device challenges",
-        "Outlined key business benefits including onboarding uplift, fraud reduction, cost savings, and brand trust",
-        "Presented monetization opportunities leveraging ancillary Truecaller solutions across authentication, user leads, and checkout",
-        "Recommended co-marketing and developer engagement strategies to accelerate ecosystem adoption",
-        "Proposed success metrics to measure impact on conversion, retention, fraud reduction, and operational efficiency"
-      ],
-      "impact": {
-        "businessOutcome": "Strategic roadmap for Truecaller SDK adoption maximizing onboarding, reducing fraud, and boosting partner revenue",
-        "userOutcome": "Enabling seamless, trustworthy authentication experiences improving digital service access and retention",
-        "skillsDemonstrated": "Product research, GTM strategy, business case development, stakeholder alignment"
-      },
-      "role": "Product Analyst & GTM Strategist",
-      "duration": "Strategic Analysis Project (6 weeks)",
-      "keyFeatures": [
-        "User pain-point and drop-off analysis focused on OTP friction and SDK implementation impact",
-        "Business case quantification of fraud, RTO, and cost reduction benefits",
-        "Market opportunity sizing covering e-commerce growth and mobile-first user segments",
-        "Monetization modeling across SDK deployments and ancillary products",
-        "Ecosystem development strategy including hackathons, co-marketing, and partner collaborations",
-        "Defining KPIs for adoption tracking and continuous improvement"
+      "images": [
+        {
+          "src": "/projects/truecaller/analysis.jpg",
+          "alt": "Truecaller Feature Analysis"
+        }
       ]
     },
     {
@@ -339,12 +242,6 @@
       "date": "2025",
       "status": "Strategy & Prototype",
       "featured": true,
-      "metrics": [
-        "50% reduction in registration drop-offs by enabling frictionless onboarding",
-        "~25% decrease in checkout abandonment with universal playback sync",
-        "Real-time session syncing across devices — mobile, web, smart TV",
-        "Enhanced user retention through personalized, persistent continue watching rows"
-      ],
       "links": [
         {
           "name": "LinkedIn Post",
@@ -355,29 +252,11 @@
           "url": "https://drive.google.com/file/d/1WmULdZwnDu3RUFlQ5WhRuSqYfNksQ040/view?usp=sharing"
         }
       ],
-      "images": [],
-      "highlights": [
-        "Deep analysis of current UX gaps causing fragmented sports viewing journeys",
-        "Designed universal 'Continue Watching' row across mobile, web, and TV platforms",
-        "Mapped user journeys for multi-device synchronization with real-time playback position saving",
-        "Addressed edge cases like network loss, sync failure, profile differentiation for shared accounts",
-        "Focused on ensuring low friction during onboarding and playback resumption to reduce churn",
-        "Defined key success metrics including session duration, churn rates, and sync reliability"
-      ],
-      "impact": {
-        "businessOutcome": "Enhanced retention and session times, enabling FanCode to compete with top OTT platforms",
-        "userOutcome": "Seamless multi-device viewing experience with personalized, persistent playback continuity",
-        "skillsDemonstrated": "End-to-end product strategy, UX design, user journey mapping, stakeholder alignment"
-      },
-      "role": "Product Strategist & UX Lead",
-      "duration": "5 weeks",
-      "keyFeatures": [
-        "Persistent 'Continue Watching' section on all platforms with instant access",
-        "Automatic playback position saving and cross-device sync",
-        "Profile-based experience ensuring accurate progress for shared device users",
-        "Low-latency backend for real-time synchronization",
-        "Fallback states and offline resilience",
-        "UX strategies to increase engagement and reduce friction"
+      "images": [
+        {
+          "src": "/projects/fancode/multi-device.jpg",
+          "alt": "FanCode Multi-Device Sync"
+        }
       ]
     }
   ],
@@ -390,7 +269,7 @@
   "internship": {
     "seeking": true,
     "duration": "Full-time",
-    "startDate": "Immediately Available", 
+    "startDate": "Immediately Available",
     "preferredLocation": "Bengaluru, Mumbai, Gurgaon, or Remote",
     "focusAreas": ["Product Management", "0→1 Product Development", "Product Strategy", "GTM Strategy", "B2B/B2C Products"],
     "availability": "Immediately available for full-time opportunities",
@@ -401,6 +280,7 @@
     "traits": ["strategic", "analytical", "user-focused", "results-driven", "collaborative"],
     "interests": ["Product Strategy", "User Research", "0→1 Development", "FinTech", "EdTech", "B2B SaaS", "Growth Product"],
     "funFacts": [
+      "🏆 Won capstone competition with SonyLIV Enhanced streaming platform solution",
       "Recognized by Truecaller product team for strategic product analysis",
       "Founded EdTech startup that impacted 50+ students across 10+ career fields",
       "Drove 30%+ engagement lift in B2C product sprint",
@@ -411,11 +291,11 @@
     "motivation": "Building products that create meaningful impact and solve real user problems through data-driven insights and user-centric design"
   },
   "resume": {
-    "title": "Ayush Tiwari - Product Manager Resume", 
+    "title": "Ayush Tiwari - Product Manager Resume",
     "description": "Product Manager | 0→1 Product Strategy Expert | 3+ YOE across FinTech, EdTech & B2B",
     "fileType": "PDF",
-    "lastUpdated": "August 2025",
-    "fileSize": "110 KB", 
+    "lastUpdated": "September 2025",
+    "fileSize": "110 KB",
     "downloadUrl": "/Ayush_Tiwari_Resume.pdf"
   },
   "chatbot": {
@@ -425,13 +305,13 @@
     "language": "english",
     "responseStyle": "thoughtful, strategic, and results-oriented",
     "useEmojis": true,
-    "topics": ["product_management", "0_to_1_experience", "gtm_strategy", "user_research", "product_strategy", "job_opportunities", "fintech_experience", "edtech_experience"]
+    "topics": ["product_management", "0_to_1_experience", "gtm_strategy", "user_research", "product_strategy", "job_opportunities", "fintech_experience", "edtech_experience", "capstone_winner"]
   },
   "presetQuestions": {
     "me": [
       "Who are you?",
       "Tell me about your product management background",
-      "What's your product management philosophy?", 
+      "What's your product management philosophy?",
       "How did you get into product management?",
       "What drives you as a PM?",
       "What's your experience with 0→1 products?"
@@ -439,7 +319,7 @@
     "professional": [
       "What's your product management experience?",
       "Can I see your resume?",
-      "Are you looking for PM opportunities?", 
+      "Are you looking for PM opportunities?",
       "What makes you a strong product manager?",
       "Tell me about your GTM experience",
       "How do you approach user research?",
@@ -449,12 +329,20 @@
       "How do you measure product success?"
     ],
     "projects": [
-      "What's your most impactful product work?",
+      "🏆 Tell me about your capstone winning project",
+      "How did you solve SonyLIV's retention problem?",
+      "What was your approach to the Blinkit strategy assignment?",
       "Tell me about the Truecaller recognition",
-      "How did you achieve 30% engagement lift?",
-      "Walk me through your BrightBunny experience", 
+      "How did you achieve 30% engagement lift with QwikPik?",
+      "Walk me through your streaming platform design process",
       "What was your biggest product challenge?",
       "Tell me about your 0→1 experience at Vance"
+    ],
+    "achievements": [
+      "What are your major achievements?",
+      "Tell me about your capstone victory",
+      "What awards have you won?",
+      "Tell me about your Product Space fellowship"
     ],
     "contact": [
       "How can I reach you?",
@@ -474,9 +362,9 @@
     ]
   },
   "meta": {
-    "configVersion": "1.0",
-    "lastUpdated": "2025-08-25",
+    "configVersion": "2.1",
+    "lastUpdated": "2025-09-26",
     "generatedBy": "PPP Portfolio System",
-    "description": "Complete portfolio configuration for Ayush Tiwari - Product Manager with 3+ YOE in 0→1 product development across FinTech, EdTech, and B2B"
+    "description": "Complete portfolio configuration for Ayush Tiwari - Product Manager with 3+ YOE in 0→1 product development across FinTech, EdTech, and B2B. Updated with SonyLIV capstone winner and Blinkit strategy projects."
   }
 }
