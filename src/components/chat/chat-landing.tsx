@@ -1,8 +1,7 @@
 'use client';
-import { motion } from 'framer-motion';
-import { Award, Code, GraduationCap, Mail, MessageSquare, Briefcase } from 'lucide-react';
-import React from 'react';
-import { presetReplies } from '@/lib/config-loader';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquare, Briefcase } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
 interface ChatLandingProps {
   submitQuery: (query: string) => void;
@@ -10,171 +9,202 @@ interface ChatLandingProps {
 }
 
 const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetReply }) => {
-  // Suggested questions that the user can click on
-  const suggestedQuestions = [
-    {
-      icon: <MessageSquare className="h-4 w-4" />,
-      text: 'Who are you?',
-    },
-    {
-      icon: <Code className="h-4 w-4" />,
-      text: 'What projects are you most proud of?',
-    },
-    {
-      icon: <Award className="h-4 w-4" />,
-      text: 'What are your skills?',
-    },
-    {
-      icon: <Briefcase className="h-4 w-4" />,
-      text: 'Are You available for opportunities?',
-    },
-    {
-      icon: <Mail className="h-4 w-4" />,
-      text: 'What is the best way to connect with you',
-    },
+  const [showLoading, setShowLoading] = useState(true);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  const morphTexts = [
+    "Explore My Work",
+    "Product Management", 
+    "0→1 Experience",
+    "Ready for Impact"
   ];
 
- const handleQuestionClick = (questionText: string) => {
-  // Add debugging
-  console.log('Question clicked:', questionText);
-  console.log('Available preset keys:', Object.keys(presetReplies));
-  // Check if this question has a preset reply
-  const preset = presetReplies[questionText as keyof typeof presetReplies];
-  console.log('Found preset:', preset);
-  if (preset && handlePresetReply) {
-    console.log('✅ Using preset reply');
-    handlePresetReply(questionText, preset.reply, preset.tool);
-  } else {
-    console.log('❌ No preset found, falling back to AI query');
-    submitQuery(questionText);
+  useEffect(() => {
+    const mountTimer = setTimeout(() => {
+      setMounted(true);
+      
+      // Text morphing sequence
+      const textInterval = setInterval(() => {
+        setCurrentTextIndex((prev) => {
+          if (prev < morphTexts.length - 1) {
+            return prev + 1;
+          } else {
+            clearInterval(textInterval);
+            setShowLoading(false);
+            return prev;
+          }
+        });
+      }, 1000); // Change text every 1 second
+
+      return () => {
+        clearInterval(textInterval);
+      };
+    }, 100);
+
+    return () => clearTimeout(mountTimer);
+  }, []);
+
+  // OPTION 2: Morphing Text Animation
+  if (!mounted || showLoading) {
+    return (
+      <div className="loading-overlay flex items-center justify-center">
+        <div className="max-w-5xl mx-auto px-6 text-center relative">
+          
+          {/* Morphing Text */}
+          {mounted && (
+            <div className="relative h-32 flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={currentTextIndex}
+                  className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 bg-clip-text text-transparent"
+                  initial={{ 
+                    opacity: 0, 
+                    scale: 0.8,
+                    rotateX: 90,
+                    filter: "blur(10px)"
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotateX: 0,
+                    filter: "blur(0px)"
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 1.2,
+                    rotateX: -90,
+                    filter: "blur(10px)"
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {morphTexts[currentTextIndex]}
+                </motion.h1>
+              </AnimatePresence>
+            </div>
+          )}
+
+          {/* Progress Bar */}
+          {mounted && (
+            <motion.div
+              className="w-64 h-1 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mt-12 overflow-hidden"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <motion.div
+                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                initial={{ width: "0%" }}
+                animate={{ width: `${((currentTextIndex + 1) / morphTexts.length) * 100}%` }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </motion.div>
+          )}
+
+          {/* Loading dots */}
+          {mounted && (
+            <motion.div
+              className="flex justify-center mt-8 space-x-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                  animate={{
+                    scale: [1, 1.4, 1],
+                    opacity: [0.4, 1, 0.4],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+            </motion.div>
+          )}
+
+          {/* Static fallback */}
+          {!mounted && (
+            <div className="opacity-0">
+              <h1 className="text-5xl font-bold">Explore My Work</h1>
+            </div>
+          )}
+        </div>
+      </div>
+    );
   }
-};
 
-  // Animation variants for staggered animation
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  // Fixed: Remove transition from variant and use simpler structure
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+  // Main Content (after loading)
   return (
     <motion.div
       className="flex w-full flex-col items-center px-4 py-6"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      key="main-content"
     >
-      {/* Welcome message - Compact */}
+      {/* Welcome message */}
       <motion.div 
-        className="mb-6 text-center" 
-        variants={itemVariants}
-        transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+        className="mb-8 text-center" 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1, ease: "easeInOut" }}
       >
-        <h2 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
-          I'm Ayush's Digital Twin
+        <div className="inline-flex items-center px-3 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-300 text-xs font-medium mb-4">
+          <MessageSquare className="w-4 h-4 mr-2" />
+          Portfolio Navigation
+        </div>
+        <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+          Explore My <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Work</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-md text-base">
-          Your guide to my Product Management experience across FinTech, EdTech, and entrepreneurship.
+        <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-2xl text-lg leading-relaxed">
+          Aspiring Product Manager with 3+ years of 0→1 experience across FinTech, EdTech, and entrepreneurship. Use the navigation below to explore my work.
         </p>
       </motion.div>
 
-      {/* Available for Opportunities Button - Fixed question text */}
+      {/* Available for Opportunities Button */}
       <motion.div 
-        className="mb-6" 
-        variants={itemVariants}
-        transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+        className="mb-8 sm:mb-12" 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }}
       >
-        <motion.button
-          onClick={() => handleQuestionClick('Are You available for opportunities?')}
-          className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm"
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
+        <motion.div
+          className="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full px-4 py-2.5 sm:px-8 sm:py-4 shadow-lg flex items-center gap-2 sm:gap-3 text-sm sm:text-base cursor-default max-w-fit mx-auto"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 sm:h-3 sm:w-3">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+            <span className="relative inline-flex h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-white"></span>
           </span>
-          Available for Opportunities
-          <Briefcase className="w-4 h-4" />
-        </motion.button>
+          <span className="whitespace-nowrap">Available for Opportunities</span>
+          <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
+        </motion.div>
       </motion.div>
 
-      {/* Suggested questions - Mobile Optimized */}
+      {/* Instructions */}
       <motion.div
-        className="w-full max-w-md space-y-3"
-        variants={containerVariants}
+        className="text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
       >
-        {suggestedQuestions.map((question, index) => {
-          // Color schemes for mobile
-          const colorSchemes = [
-            {
-              bg: 'bg-white dark:bg-gray-800',
-              hover: 'hover:bg-purple-50 dark:hover:bg-purple-900/20',
-              border: 'border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600',
-              icon: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
-            },
-            {
-              bg: 'bg-white dark:bg-gray-800',
-              hover: 'hover:bg-blue-50 dark:hover:bg-blue-900/20',
-              border: 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600',
-              icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-            },
-            {
-              bg: 'bg-white dark:bg-gray-800',
-              hover: 'hover:bg-green-50 dark:hover:bg-green-900/20',
-              border: 'border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600',
-              icon: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
-            },
-            {
-              bg: 'bg-white dark:bg-gray-800',
-              hover: 'hover:bg-orange-50 dark:hover:bg-orange-900/20',
-              border: 'border-gray-200 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-600',
-              icon: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
-            },
-            {
-              bg: 'bg-white dark:bg-gray-800',
-              hover: 'hover:bg-indigo-50 dark:hover:bg-indigo-900/20',
-              border: 'border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600',
-              icon: 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400'
-            }
-          ];
-
-          const colors = colorSchemes[index] || colorSchemes[0];
-
-          return (
-            <motion.button
-              key={index}
-              className={`${colors.bg} ${colors.hover} ${colors.border} group flex w-full items-center rounded-xl border p-4 shadow-md hover:shadow-lg transition-all duration-300`}
-              onClick={() => handleQuestionClick(question.text)}
-              variants={itemVariants}
-              transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className={`${colors.icon} mr-3 rounded-lg p-2 group-hover:scale-110 transition-transform duration-200`}>
-                {React.cloneElement(question.icon, { className: "w-5 h-5" })}
-              </span>
-              <span className="flex-1 text-left text-base font-medium text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
-                {question.text}
-              </span>
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </motion.button>
-          );
-        })}
+        <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
+          Quick Navigation
+        </p>
+        <p className="text-gray-600 dark:text-gray-300 text-base">
+          Use the buttons below to explore different sections
+        </p>
       </motion.div>
     </motion.div>
   );
