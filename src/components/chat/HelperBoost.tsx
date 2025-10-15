@@ -24,7 +24,7 @@ import {
   UserRoundSearch,
   UserSearch,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Drawer } from 'vaul';
 import { PresetReply } from '@/components/chat/preset-reply';
 import { presetReplies } from '@/lib/config-loader';
@@ -146,6 +146,11 @@ export default function HelperBoost({
   const [open, setOpen] = useState(false);
   const [showPresetReply, setShowPresetReply] = useState<string | null>(null);
 
+  // Force buttons to be visible on mount
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   const handleQuestionClick = (questionKey: string) => {
     const question = questions[questionKey as keyof typeof questions];
     
@@ -216,51 +221,49 @@ export default function HelperBoost({
             </button>
           </div>
 
-          {/* Enhanced Quick Questions Section - Background Fixed */}
-          {isVisible && (
-            <div className="w-full bg-transparent">
-              {/* Subtle gradient wash for blending */}
-              <div className="relative w-full bg-transparent">
-                <div
-                  className="
-                    flex w-full gap-2 md:gap-3
-                    overflow-x-auto custom-scrollbar
-                    snap-x snap-mandatory
-                    bg-transparent
-                    supports-[backdrop-filter]:backdrop-blur-sm
-                    px-2 py-3
-                  "
-                  style={{ justifyContent: 'safe center' }}
-                >
-                  {questionConfig.map(({ key, color, icon: Icon }) => (
-                    <Button
-                      key={key}
-                      onClick={() => handleQuestionClick(key)}
-                      variant="outline"
-                      className="
-                        group relative
-                        h-10 md:h-11 min-w-[100px] flex-shrink-0
-                        px-3.5 md:px-4 rounded-2xl
-                        bg-white/30 dark:bg-gray-900/30
-                        backdrop-blur-lg
-                        border border-gray-200/50 dark:border-gray-800/50
-                        shadow-sm hover:shadow-md 
-                        hover:-translate-y-0.5 active:translate-y-0
-                        hover:bg-white/40 dark:hover:bg-gray-900/40
-                        transition-all duration-200 ease-out
-                        focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-                      "
-                    >
-                      <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
-                        <Icon size={18} strokeWidth={2} color={color} className="transition-transform duration-200 group-hover:scale-110" />
-                        <span className="text-sm font-semibold">{key}</span>
-                      </div>
-                    </Button>
-                  ))}
-                </div>
+          {/* FIXED: Always show horizontal buttons - removed isVisible condition */}
+          <div className="w-full bg-transparent">
+            {/* Subtle gradient wash for blending */}
+            <div className="relative w-full bg-transparent">
+              <div
+                className="
+                  flex w-full gap-2 md:gap-3
+                  overflow-x-auto custom-scrollbar
+                  snap-x snap-mandatory
+                  bg-transparent
+                  supports-[backdrop-filter]:backdrop-blur-sm
+                  px-2 py-3
+                "
+                style={{ justifyContent: 'safe center' }}
+              >
+                {questionConfig.map(({ key, color, icon: Icon }) => (
+                  <Button
+                    key={key}
+                    onClick={() => handleQuestionClick(key)}
+                    variant="outline"
+                    className="
+                      group relative
+                      h-10 md:h-11 min-w-[100px] flex-shrink-0
+                      px-3.5 md:px-4 rounded-2xl
+                      bg-white/30 dark:bg-gray-900/30
+                      backdrop-blur-lg
+                      border border-gray-200/50 dark:border-gray-800/50
+                      shadow-sm hover:shadow-md 
+                      hover:-translate-y-0.5 active:translate-y-0
+                      hover:bg-white/40 dark:hover:bg-gray-900/40
+                      transition-all duration-200 ease-out
+                      focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                    "
+                  >
+                    <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
+                      <Icon size={18} strokeWidth={2} color={color} className="transition-transform duration-200 group-hover:scale-110" />
+                      <span className="text-sm font-semibold">{key}</span>
+                    </div>
+                  </Button>
+                ))}
               </div>
             </div>
-          )}
+          </div>
         </div>
 
         {/* Enhanced Drawer Content with Contact-Style Hover Effects */}
