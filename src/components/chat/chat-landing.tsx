@@ -45,76 +45,173 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     return () => clearTimeout(mountTimer);
   }, []);
 
-  // Mobile-Optimized Loading Animation
+  // RESTORED: Enhanced Morphing Animation (Mobile-Safe Version)
   if (!mounted || showLoading) {
     return (
       <div className="loading-overlay flex items-center justify-center min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 text-center relative">
+        <div className="max-w-5xl mx-auto px-6 text-center relative">
           
-          {/* Mobile-Safe Morphing Text */}
+          {/* Background glow effects - Mobile Safe */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-blue-500/5 rounded-full blur-3xl scale-150 opacity-60" />
+          
+          {/* Enhanced Morphing Text - Your Favorite Animation Restored */}
           {mounted && (
-            <div className="relative min-h-[160px] flex items-center justify-center py-12">
+            <div className="relative h-40 flex items-center justify-center">
               <AnimatePresence mode="wait">
-                <motion.div
+                <motion.h1
                   key={currentTextIndex}
-                  className="absolute inset-0 flex items-center justify-center"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+                  className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none"
+                  initial={{ 
+                    opacity: 0, 
+                    scale: 0.8,
+                    rotateX: 45, // Restored 3D effect - mobile safe version
+                    filter: "blur(8px)"
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    rotateX: 0,
+                    filter: "blur(0px)"
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 1.2,
+                    rotateX: -45,
+                    filter: "blur(8px)"
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  style={{
+                    // Mobile-safe gradient using CSS variables
+                    background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    backgroundSize: '200% 200%'
+                  }}
                 >
-                  {/* Mobile-optimized text with solid colors */}
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white text-center px-4">
-                    <span className="block sm:inline text-blue-600 dark:text-blue-400">
-                      {morphTexts[currentTextIndex].split(' ')[0]}
-                    </span>
-                    {morphTexts[currentTextIndex].split(' ').slice(1).length > 0 && (
-                      <>
-                        <span className="hidden sm:inline"> </span>
-                        <span className="block sm:inline text-purple-600 dark:text-purple-400">
-                          {morphTexts[currentTextIndex].split(' ').slice(1).join(' ')}
-                        </span>
-                      </>
-                    )}
-                  </h1>
-                </motion.div>
+                  {morphTexts[currentTextIndex]}
+                </motion.h1>
               </AnimatePresence>
             </div>
           )}
 
-          {/* Mobile-Safe Progress Indicator */}
+          {/* Enhanced Progress Bar - Your Style */}
           {mounted && (
             <motion.div
-              className="w-48 sm:w-60 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mt-6 overflow-hidden"
-              initial={{ opacity: 0, scale: 0.8 }}
+              className="w-64 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mt-12 overflow-hidden shadow-inner"
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
             >
               <motion.div
-                className="h-full bg-blue-500 rounded-full"
+                className="h-full rounded-full relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%)',
+                }}
                 initial={{ width: "0%" }}
                 animate={{ width: `${((currentTextIndex + 1) / morphTexts.length) * 100}%` }}
-                transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-              />
+                transition={{ duration: 0.3, ease: [0.42, 0, 0.58, 1] }}
+              >
+                {/* Shimmer effect on progress bar */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                />
+              </motion.div>
             </motion.div>
           )}
 
-          {/* Mobile-Optimized Status Text */}
+          {/* Enhanced Loading Dots - Your Favorite Style */}
+          {mounted && (
+            <motion.div
+              className="flex justify-center mt-8 space-x-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="relative"
+                >
+                  <motion.div
+                    className="w-2.5 h-2.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                    animate={{
+                      scale: [1, 1.6, 1],
+                      opacity: [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                  />
+                  {/* Expanding ring effect */}
+                  <motion.div
+                    className="absolute inset-0 w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                    animate={{
+                      scale: [1, 2.5, 1],
+                      opacity: [0, 0.3, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Ambient floating elements - Restored */}
+          {mounted && (
+            <div className="absolute inset-0 pointer-events-none">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-blue-400/60 rounded-full"
+                  style={{
+                    left: `${20 + (i * 15)}%`,
+                    top: `${35 + (i % 3) * 15}%`,
+                  }}
+                  animate={{
+                    y: [-8, 8, -8],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [1, 1.3, 1],
+                  }}
+                  transition={{
+                    duration: 2.5 + i * 0.3,
+                    repeat: Infinity,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    delay: i * 0.4,
+                  }}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Status text with breathing effect */}
           {mounted && (
             <motion.p
-              className="text-sm text-gray-600 dark:text-gray-400 mt-6 font-medium"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0.6, 1, 0.6] }}
+              className="text-sm text-gray-500 dark:text-gray-400 mt-10 font-medium"
+              animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              {currentTextIndex < morphTexts.length - 1 ? "Loading..." : "Almost ready..."}
+              {currentTextIndex < morphTexts.length - 1 ? "Crafting experience..." : "Almost ready..."}
             </motion.p>
           )}
 
           {/* Static fallback */}
           {!mounted && (
             <div className="opacity-0">
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Explore My Work</h1>
+              <h1 className="text-5xl font-bold">Explore My Work</h1>
             </div>
           )}
         </div>
@@ -122,7 +219,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     );
   }
 
-  // Main Content
+  // Main Content (unchanged)
   return (
     <motion.div
       className="flex w-full flex-col items-center px-4 py-6"
