@@ -65,6 +65,144 @@ const Avatar = dynamic<AvatarProps>(
   { ssr: false }
 );
 
+// Mobile-only floating action button + bottom sheet input
+const MobileChatFab = ({
+  inputValue,
+  onChange,
+  onSubmit,
+  isLoading,
+}: {
+  inputValue: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  onSubmit: (e: React.FormEvent) => void;
+  isLoading: boolean;
+}) => {
+  const [open, setOpen] = useState(false);
+
+  const handleSubmitAndClose = (e: React.FormEvent) => {
+    onSubmit(e);
+    setOpen(false);
+  };
+
+  return (
+    <div className="md:hidden">
+      {/* Floating Action Button */}
+<button
+  type="button"
+  onClick={() => setOpen(true)}
+  className="
+    fixed bottom-20 right-4 z-[60]
+    h-14 w-14 rounded-full
+    backdrop-blur-md
+    border border-white/30
+    shadow-lg hover:shadow-xl active:scale-95
+    flex items-center justify-center
+    transition-all duration-300
+    hover:scale-110
+  "
+  style={{
+    background: 'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%)',
+    backdropFilter: 'blur(12px)'
+  }}
+  aria-label="Open chat input"
+>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-700">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+
+      {/* Bottom Sheet Input */}
+      {open && (
+        <div className="fixed inset-0 z-[70]">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          />
+          
+          {/* Sheet Content */}
+          <div className="absolute left-0 right-0 bottom-0 bg-white dark:bg-gray-900 rounded-t-2xl shadow-2xl">
+            <div className="p-4">
+              {/* Handle bar */}
+              <div className="mb-4 h-1 w-10 rounded-full bg-gray-300 dark:bg-gray-700 mx-auto" />
+              
+              {/* Input form */}
+              <form onSubmit={handleSubmitAndClose} className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <input
+                    value={inputValue}
+                    onChange={onChange}
+                    placeholder="Ask me anything..."
+                    autoFocus
+                    className="
+                      flex-1 rounded-xl px-4 py-3
+                      bg-gray-50 dark:bg-gray-800
+                      text-gray-800 dark:text-gray-100
+                      border border-gray-200 dark:border-gray-700
+                      outline-none focus:ring-2 focus:ring-blue-500
+                      text-base
+                    "
+                  />
+                  <button
+                    type="submit"
+                    disabled={isLoading || !inputValue.trim()}
+                    className="
+                      inline-flex items-center justify-center
+                      h-12 w-12 rounded-xl
+                      bg-gradient-to-r from-blue-500 to-purple-500 text-white
+                      shadow-md hover:shadow-lg active:scale-95
+                      disabled:opacity-60 disabled:cursor-not-allowed
+                      transition-all duration-200
+                    "
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M4 4l20 12-20 8 7-8-7-4z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Quick suggestions */}
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    className="text-xs px-3 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                    onClick={() => {
+                      const event = { target: { value: "Show your top projects" } } as React.ChangeEvent<HTMLInputElement>;
+                      onChange(event);
+                    }}
+                  >
+                    Show your top projects
+                  </button>
+                  <button
+                    type="button"
+                    className="text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
+                    onClick={() => {
+                      const event = { target: { value: "What roles are you open to?" } } as React.ChangeEvent<HTMLInputElement>;
+                      onChange(event);
+                    }}
+                  >
+                    What roles are you open to?
+                  </button>
+                </div>
+
+                {/* Close button */}
+                <button
+                  type="button"
+                  className="w-full py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  Close
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const MOTION_CONFIG = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -444,26 +582,36 @@ const Chat = () => {
           </AnimatePresence>
         </div>
 
-        {/* Fixed Bottom Bar */}
-       <div className="sticky bottom-0 bg-transparent px-2 pt-3 md:px-0 md:pb-4">
-
-          <div className="relative flex flex-col items-center gap-3">
+        {/* Fixed Bottom Bar - Mobile Optimized */}
+        <div className="sticky bottom-0 bg-transparent px-2 pt-2 md:px-0 md:pb-4">
+          <div className="relative flex flex-col items-center gap-2 md:gap-3">
             <HelperBoost 
               submitQuery={submitQuery} 
               setInput={setInput} 
               handlePresetReply={handlePresetReply}
             />
-            <ChatBottombar
-              input={input}
-              handleInputChange={handleInputChange}
-              handleSubmit={onSubmit}
-              isLoading={isLoading}
-              stop={handleStop}
-              isToolInProgress={isToolInProgress}
-            />
+            
+            {/* Desktop input only (hidden on mobile) */}
+            <div className="hidden md:block w-full">
+              <ChatBottombar
+                input={input}
+                handleInputChange={handleInputChange}
+                handleSubmit={onSubmit}
+                isLoading={isLoading}
+                stop={handleStop}
+                isToolInProgress={isToolInProgress}
+              />
+            </div>
           </div>
         </div>
 
+        {/* Mobile FAB (shows only on mobile) */}
+        <MobileChatFab
+          inputValue={input}
+          onChange={handleInputChange}
+          onSubmit={onSubmit}
+          isLoading={isLoading}
+        />
       </div>
     </div>
   );
