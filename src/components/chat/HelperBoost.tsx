@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
@@ -15,14 +14,12 @@ import {
   ChevronDown,
   ChevronRight,
   ChevronUp,
-  CircleEllipsis,
   CodeIcon,
   FileText,
   GraduationCapIcon,
   Laugh,
   Layers,
   MailIcon,
-  PartyPopper,
   Sparkles,
   UserRoundSearch,
   UserSearch,
@@ -140,26 +137,6 @@ const questionsByCategory = [
   },
 ];
 
-// Animated Chevron component
-const AnimatedChevron = () => {
-  return (
-    <motion.div
-      animate={{
-        y: [0, -4, 0], // Subtle up and down motion
-      }}
-      transition={{
-        duration: 1.5,
-        ease: 'easeInOut',
-        repeat: Infinity,
-        repeatType: 'loop',
-      }}
-      className="text-primary mb-1.5"
-    >
-      <ChevronUp size={16} />
-    </motion.div>
-  );
-};
-
 export default function HelperBoost({
   submitQuery,
   setInput,
@@ -212,18 +189,18 @@ export default function HelperBoost({
   return (
     <>
       <Drawer.Root open={open} onOpenChange={setOpen}>
-        <div className="w-full">
+        <div className="w-full bg-transparent">
           {/* Toggle Button */}
           <div
             className={
               isVisible
-                ? 'mb-2 flex justify-center'
-                : 'mb-0 flex justify-center'
+                ? 'mb-2 flex justify-center bg-transparent'
+                : 'mb-0 flex justify-center bg-transparent'
             }
           >
             <button
               onClick={toggleVisibility}
-              className="flex items-center gap-1 px-3 py-1 text-xs text-gray-500 transition-colors hover:text-gray-700"
+              className="flex items-center gap-1 px-3 py-1 text-xs text-gray-500 transition-colors hover:text-gray-700 bg-transparent"
             >
               {isVisible ? (
                 <>
@@ -239,51 +216,48 @@ export default function HelperBoost({
             </button>
           </div>
 
-          {/* ORIGINAL HelperBoost Content - UNCHANGED */}
+          {/* Enhanced Quick Questions Section - Background Fixed */}
           {isVisible && (
-            <div className="w-full">
-              <div
-                className="flex w-full flex-wrap gap-1 md:gap-3"
-                style={{ justifyContent: 'safe center' }}
-              >
-                {questionConfig.map(({ key, color, icon: Icon }) => (
-                  <Button
-                    key={key}
-                    onClick={() => handleQuestionClick(key)}
-                    variant="outline"
-                    className="border-border hover:bg-border/30 h-auto min-w-[100px] flex-shrink-0 cursor-pointer rounded-xl border bg-white/80 px-4 py-3 shadow-none backdrop-blur-sm transition-none active:scale-95"
-                  >
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <Icon size={18} strokeWidth={2} color={color} />
-                      <span className="text-sm font-medium">{key}</span>
-                    </div>
-                  </Button>
-                ))}
-
-                {/* Need Inspiration Button */}
-                <TooltipProvider>
-                  <Tooltip delayDuration={0}>
-                    <TooltipTrigger asChild>
-                      <Drawer.Trigger className="group relative flex flex-shrink-0 items-center justify-center">
-                        <motion.div
-                          className="hover:bg-border/30 flex h-auto cursor-pointer items-center space-x-1 rounded-xl border border-neutral-200 bg-white/80 px-4 py-3 text-sm backdrop-blur-sm transition-all duration-200 dark:border-neutral-800 dark:bg-neutral-900"
-                          whileHover={{ scale: 1 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <div className="flex items-center gap-3 text-gray-700">
-                            <CircleEllipsis
-                              className="h-[20px] w-[18px]"
-                              strokeWidth={2}
-                            />
-                          </div>
-                        </motion.div>
-                      </Drawer.Trigger>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <AnimatedChevron />
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+            <div className="w-full bg-transparent">
+              {/* Subtle gradient wash for blending */}
+              <div className="relative w-full bg-transparent">
+                <div
+                  className="
+                    flex w-full gap-2 md:gap-3
+                    overflow-x-auto custom-scrollbar
+                    snap-x snap-mandatory
+                    bg-transparent
+                    supports-[backdrop-filter]:backdrop-blur-sm
+                    px-2 py-3
+                  "
+                  style={{ justifyContent: 'safe center' }}
+                >
+                  {questionConfig.map(({ key, color, icon: Icon }) => (
+                    <Button
+                      key={key}
+                      onClick={() => handleQuestionClick(key)}
+                      variant="outline"
+                      className="
+                        group relative
+                        h-10 md:h-11 min-w-[100px] flex-shrink-0
+                        px-3.5 md:px-4 rounded-2xl
+                        bg-white/30 dark:bg-gray-900/30
+                        backdrop-blur-lg
+                        border border-gray-200/50 dark:border-gray-800/50
+                        shadow-sm hover:shadow-md 
+                        hover:-translate-y-0.5 active:translate-y-0
+                        hover:bg-white/40 dark:hover:bg-gray-900/40
+                        transition-all duration-200 ease-out
+                        focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                      "
+                    >
+                      <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
+                        <Icon size={18} strokeWidth={2} color={color} className="transition-transform duration-200 group-hover:scale-110" />
+                        <span className="text-sm font-semibold">{key}</span>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
               </div>
             </div>
           )}
