@@ -582,28 +582,30 @@ const Chat = () => {
           </AnimatePresence>
         </div>
 
-        {/* Fixed Bottom Bar - Mobile Optimized */}
-        <div className="sticky bottom-0 bg-transparent px-2 pt-2 md:px-0 md:pb-4">
-          <div className="relative flex flex-col items-center gap-2 md:gap-3">
-            <HelperBoost 
-              submitQuery={submitQuery} 
-              setInput={setInput} 
-              handlePresetReply={handlePresetReply}
-            />
-            
-            {/* Desktop input only (hidden on mobile) */}
-            <div className="hidden md:block w-full">
-              <ChatBottombar
-                input={input}
-                handleInputChange={handleInputChange}
-                handleSubmit={onSubmit}
-                isLoading={isLoading}
-                stop={handleStop}
-                isToolInProgress={isToolInProgress}
-              />
-            </div>
-          </div>
-        </div>
+{/* Fixed Bottom Bar - Always Visible */}
+<div className="sticky bottom-0 bg-transparent px-2 pt-2 md:px-0 md:pb-4">
+  <div className="relative flex flex-col items-center gap-2 md:gap-3">
+    {/* Always show HelperBoost - no conditional rendering */}
+    <HelperBoost 
+      submitQuery={submitQuery} 
+      setInput={setInput} 
+      handlePresetReply={handlePresetReply}
+    />
+    
+    {/* Desktop input only (hidden on mobile) */}
+    <div className="hidden md:block w-full">
+      <ChatBottombar
+        input={input}
+        handleInputChange={handleInputChange}
+        handleSubmit={onSubmit}
+        isLoading={isLoading}
+        stop={handleStop}
+        isToolInProgress={isToolInProgress}
+      />
+    </div>
+  </div>
+</div>
+
 
         {/* Mobile FAB (shows only on mobile) */}
         <MobileChatFab
