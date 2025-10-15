@@ -61,39 +61,76 @@ const Skills: React.FC = () => {
     return badgeContent;
   };
 
-  const categories = [
+const categories = [
+  {
+    key: 'soft_skills',
+    displayName: 'Product Management Skills',
+    icon: <Briefcase className="h-5 w-5 text-blue-500 dark:text-blue-400" />,
+    chip: 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-200 border border-blue-200/60 dark:border-blue-900/40',
+    card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
+    skills: config.skills?.soft_skills || []
+  },
+  {
+  key: 'certifications',
+  displayName: 'Certifications',
+  icon: <Award className="h-5 w-5 text-amber-500 dark:text-amber-400" />,
+  chip: 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-200 border border-amber-200/60 dark:border-amber-900/40',
+  card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
+  skills: [
     {
-      key: 'product_management',
-      displayName: 'Product Management',
-      icon: <Briefcase className="h-5 w-5 text-blue-500 dark:text-blue-400" />,
-      chip: 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-200 border border-blue-200/60 dark:border-blue-900/40',
-      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
+      name: "Aha! Product Management Professional Certificate",
+      url: "https://www.linkedin.com/learning/certificates/d66054295450d02fd23c43cefdf775cccf3df7ac69fb384cccb38c3694324a40"
     },
     {
-      key: 'business_strategy',
-      displayName: 'Business Strategy',
-      icon: <Layers3 className="h-5 w-5 text-purple-500 dark:text-purple-400" />,
-      chip: 'bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-200 border border-purple-200/60 dark:border-purple-900/40',
-      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
+      name: "Atlassian Agile Project Management Professional Certificate",
+      url: "https://www.linkedin.com/learning/certificates/f5265267f7f4e17a98f8f51910c9c317a437312f343c446b4fee6cedc068034b"
     },
     {
-      key: 'technical_skills',
-      displayName: 'Technical Skills',
-      icon: <Cpu className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />,
-      chip: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-200 border border-emerald-200/60 dark:border-emerald-900/40',
-      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
-    },
-    {
-      key: 'certifications',
-      displayName: 'Certifications',
-      icon: <Award className="h-5 w-5 text-amber-500 dark:text-amber-400" />,
-      chip: 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-200 border border-amber-200/60 dark:border-amber-900/40',
-      card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300'
+      name: "Microsoft Azure AI Essentials Professional Certificate",
+      url: "https://www.linkedin.com/learning/certificates/3c5352582556c206eb2de1287c49e483f95b6c9850467207bd6193bff4a296fa"
     }
-  ].map(c => ({
-    ...c,
-    skills: (config.skills?.[c.key] as string[]) || []
-  })).filter(c => c.skills.length > 0);
+  ]
+},
+
+  {
+    key: 'technical',
+    displayName: 'Tools & Platforms',
+    icon: <Cpu className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />,
+    chip: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-200 border border-emerald-200/60 dark:border-emerald-900/40',
+    card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
+    skills: [
+      'Figma',
+      'Notion',
+      'Jira',
+      'Slack',
+      'Google Analytics',
+      'Mixpanel',
+      'A/B Testing',
+      'SQL',
+      'Miro',
+      'Lovable',
+      'GitHub'
+    ]
+  },
+  {
+    key: 'domains',
+    displayName: 'Domain Expertise',
+    icon: <Layers3 className="h-5 w-5 text-purple-500 dark:text-purple-400" />,
+    chip: 'bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-200 border border-purple-200/60 dark:border-purple-900/40',
+    card: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
+    skills: [
+      'FinTech',
+      'EdTech', 
+      'B2B SaaS',
+      'Streaming Platforms',
+      'E-commerce',
+      'Quick Commerce',
+      '0→1 Products',
+      'Growth Products'
+    ]
+  }
+].filter(c => c.skills && c.skills.length > 0);
+
 
   return (
     <section aria-labelledby="skills-title" className="w-full">
