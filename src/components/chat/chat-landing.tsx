@@ -58,7 +58,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={currentTextIndex}
-                  className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 bg-clip-text text-transparent"
+                 className="absolute text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 bg-clip-text text-transparent"
                   initial={{ 
                     opacity: 0, 
                     scale: 0.8,
@@ -88,23 +88,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
             </div>
           )}
 
-          {/* Progress Bar */}
-          {mounted && (
-            <motion.div
-              className="w-64 h-1 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mt-12 overflow-hidden"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <motion.div
-                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                initial={{ width: "0%" }}
-                animate={{ width: `${((currentTextIndex + 1) / morphTexts.length) * 100}%` }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              />
-            </motion.div>
-          )}
-
+          
           {/* Loading dots */}
           {mounted && (
             <motion.div
@@ -163,10 +147,10 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
           <MessageSquare className="w-4 h-4 mr-2" />
           Portfolio Navigation
         </div>
-        <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+        <h2 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
           Explore My <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Work</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-2xl text-lg leading-relaxed">
+     <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-2xl text-base sm:text-lg leading-relaxed">
           Aspiring Product Manager with 3+ years of 0→1 experience across FinTech, EdTech, and entrepreneurship. Use the navigation below to explore my work.
         </p>
       </motion.div>
