@@ -13,13 +13,29 @@ const containerVariants = {
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.4, 
+      ease: [0.42, 0, 0.58, 1] as any // Cubic bezier equivalent of 'easeOut'
+    } 
+  }
 };
+
 
 const chipVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: 'easeOut' } }
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    transition: { 
+      duration: 0.25, 
+      ease: [0.42, 0, 0.58, 1] as any // Cubic bezier equivalent of 'easeOut'
+    } 
+  }
 };
+
 
 const Skills: React.FC = () => {
   const config = getConfig();
