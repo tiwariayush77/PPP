@@ -1,3 +1,28 @@
+/* Prevent background flash during loading animation */
+body {
+  background: linear-gradient(to bottom right, rgb(239 246 255), rgb(255 255 255), rgb(250 245 255));
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(to bottom right, rgb(17 24 39), rgb(31 41 55), rgb(17 24 39));
+  }
+}
+
+/* Override any container backgrounds that might flash */
+#__next, [data-nextjs-scroll-focus-boundary] {
+  background: transparent !important;
+}
+
+/* Ensure smooth loading transition */
+.loading-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+}
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
