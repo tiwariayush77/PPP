@@ -89,32 +89,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
           )}
 
           
-          {/* Loading dots */}
-          {mounted && (
-            <motion.div
-              className="flex justify-center mt-8 space-x-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                  animate={{
-                    scale: [1, 1.4, 1],
-                    opacity: [0.4, 1, 0.4],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </motion.div>
-          )}
+      
 
           {/* Static fallback */}
           {!mounted && (
