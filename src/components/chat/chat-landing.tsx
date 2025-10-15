@@ -10,12 +10,13 @@ interface ChatLandingProps {
 
 const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetReply }) => {
   const [showLoading, setShowLoading] = useState(true);
+  const [currentStep, setCurrentStep] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const morphTexts = [
     "Explore My Work",
-    "Product Manager", 
+    "Product Management", 
     "0→1 Experience",
     "Ready for Impact"
   ];
@@ -35,7 +36,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
             return prev;
           }
         });
-      }, 1000);
+      }, 1000); // Change text every 1 second
 
       return () => {
         clearInterval(textInterval);
@@ -45,7 +46,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     return () => clearTimeout(mountTimer);
   }, []);
 
-  // Loading Animation (built-in)
+  // OPTION 2: Morphing Text Animation
   if (!mounted || showLoading) {
     return (
       <div className="loading-overlay flex items-center justify-center">
@@ -142,7 +143,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
     );
   }
 
-  // Main Content
+  // Main Content (after loading)
   return (
     <motion.div
       className="flex w-full flex-col items-center px-4 py-6"
@@ -151,6 +152,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
       transition={{ duration: 0.8, ease: "easeOut" }}
       key="main-content"
     >
+      {/* Welcome message */}
       <motion.div 
         className="mb-8 text-center" 
         initial={{ opacity: 0, y: 20 }}
@@ -165,10 +167,11 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
           Explore My <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Work</span>
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-2xl text-lg leading-relaxed">
-          Product Manager with 3+ years of 0→1 experience across FinTech, EdTech, and entrepreneurship. Use the navigation below to explore my work.
+          Aspiring Product Manager with 3+ years of 0→1 experience across FinTech, EdTech, and entrepreneurship. Use the navigation below to explore my work.
         </p>
       </motion.div>
 
+      {/* Available for Opportunities Button */}
       <motion.div 
         className="mb-8 sm:mb-12" 
         initial={{ opacity: 0, y: 20 }}
@@ -189,6 +192,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
         </motion.div>
       </motion.div>
 
+      {/* Instructions */}
       <motion.div
         className="text-center"
         initial={{ opacity: 0, y: 20 }}
