@@ -107,15 +107,15 @@ const Skills: React.FC = () => {
       skills: [
         {
           name: "Aha! Product Management Professional Certificate",
-          url: "https://linkedin.com/in/tiwariayush77"
+          url: "https://www.linkedin.com/learning/certificates/d66054295450d02fd23c43cefdf775cccf3df7ac69fb384cccb38c3694324a40"
         },
         {
           name: "Atlassian Agile Project Management Professional Certificate",
-          url: "https://linkedin.com/in/tiwariayush77"
+          url: "https://www.linkedin.com/learning/certificates/f5265267f7f4e17a98f8f51910c9c317a437312f343c446b4fee6cedc068034b"
         },
         {
           name: "Microsoft Azure AI Essentials Professional Certificate",
-          url: "https://linkedin.com/in/tiwariayush77"
+          url: "https://www.linkedin.com/learning/certificates/3c5352582556c206eb2de1287c49e483f95b6c9850467207bd6193bff4a296fa"
         }
       ]
     },
