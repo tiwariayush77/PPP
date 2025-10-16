@@ -6,6 +6,9 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 
+// Hook imports
+import { useBottomInsets } from '@/hooks/useBottomInsets';
+
 // Component imports
 import ChatBottombar from '@/components/chat/chat-bottombar';
 import ChatLanding from '@/components/chat/chat-landing';
@@ -71,11 +74,13 @@ const MobileChatFab = ({
   onChange,
   onSubmit,
   isLoading,
+  bottomInset,
 }: {
   inputValue: string;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   onSubmit: (e: React.FormEvent) => void;
   isLoading: boolean;
+  bottomInset: number;
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -90,8 +95,9 @@ const MobileChatFab = ({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-24 right-4 z-[70] h-14 w-14 rounded-full backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="fixed right-4 z-[70] h-14 w-14 rounded-full backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
+          bottom: `calc(24px + ${bottomInset}px + env(safe-area-inset-bottom, 0px))`,
           background:
             'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%)',
           backdropFilter: 'blur(12px)'
@@ -114,7 +120,7 @@ const MobileChatFab = ({
 
           {/* Sheet Content */}
           <div className="absolute left-0 right-0 bottom-0 bg-white dark:bg-gray-900 rounded-t-2xl shadow-2xl">
-            <div className="p-4">
+            <div className="p-4 pb-[env(safe-area-inset-bottom,0px)]">
               {/* Handle bar */}
               <div className="mb-4 h-1 w-10 rounded-full bg-gray-300 dark:bg-gray-700 mx-auto" />
 
@@ -201,6 +207,9 @@ const Chat = () => {
     tool: string;
   } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Use the bottom insets hook
+  const { bottomInset, barHeight, barRef } = useBottomInsets();
 
   const {
     messages,
@@ -430,8 +439,11 @@ const Chat = () => {
       <div className="container mx-auto flex min-h-[100dvh] max-w-3xl flex-col">
         {/* Scrollable Chat Content */}
         <div
-          className="flex-1 overflow-y-auto px-2 pb-[120px] md:pb-[140px]"
-          style={{ paddingTop: `${headerHeight}px` }}
+          className="flex-1 overflow-y-auto px-2"
+          style={{
+            paddingTop: `${headerHeight}px`,
+            paddingBottom: `${barHeight + bottomInset + 20}px`, // 20px extra buffer
+          }}
         >
           <AnimatePresence mode="wait">
             {isEmptyState ? (
@@ -524,7 +536,13 @@ const Chat = () => {
         </div>
 
         {/* Fixed Bottom Bar - Always Visible */}
-        <div className="fixed inset-x-0 bottom-0 z-[55] bg-white/85 dark:bg-gray-900/85 backdrop-blur supports-[backdrop-filter]:bg-white/75 fixed-bottom-safe">
+        <div
+          ref={barRef}
+          className="fixed inset-x-0 z-[55] bg-white/85 dark:bg-gray-900/85 backdrop-blur supports-[backdrop-filter]:bg-white/75"
+          style={{
+            bottom: 'env(safe-area-inset-bottom, 0px)',
+          }}
+        >
           <div className="mx-auto max-w-3xl px-2 pt-2 md:px-0 md:pb-4">
             <div className="relative flex flex-col items-center gap-2 md:gap-3">
               <HelperBoost submitQuery={submitQuery} setInput={setInput} handlePresetReply={handlePresetReply} />
@@ -543,7 +561,13 @@ const Chat = () => {
         </div>
 
         {/* Mobile FAB (shows only on mobile) */}
-        <MobileChatFab inputValue={input} onChange={handleInputChange} onSubmit={onSubmit} isLoading={isLoading} />
+        <MobileChatFab 
+          inputValue={input} 
+          onChange={handleInputChange} 
+          onSubmit={onSubmit} 
+          isLoading={isLoading}
+          bottomInset={bottomInset}
+        />
       </div>
     </div>
   );
