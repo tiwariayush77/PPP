@@ -87,46 +87,37 @@ const MobileChatFab = ({
   return (
     <div className="md:hidden">
       {/* Floating Action Button */}
-<button
-  type="button"
-  onClick={() => setOpen(true)}
-  className="
-    fixed bottom-20 right-4 z-[60]
-    h-14 w-14 rounded-full
-    backdrop-blur-md
-    border border-white/30
-    shadow-lg hover:shadow-xl active:scale-95
-    flex items-center justify-center
-    transition-all duration-300
-    hover:scale-110
-  "
-  style={{
-    background: 'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%)',
-    backdropFilter: 'blur(12px)'
-  }}
-  aria-label="Open chat input"
->
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-700">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>
-</button>
-
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="fixed bottom-24 right-4 z-[70] h-14 w-14 rounded-full backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        style={{
+          background:
+            'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%)',
+          backdropFilter: 'blur(12px)'
+        }}
+        aria-label="Open chat input"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-700">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      </button>
 
       {/* Bottom Sheet Input */}
       {open && (
-        <div className="fixed inset-0 z-[70]">
+        <div className="fixed inset-0 z-[80]">
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
-          
+
           {/* Sheet Content */}
           <div className="absolute left-0 right-0 bottom-0 bg-white dark:bg-gray-900 rounded-t-2xl shadow-2xl">
             <div className="p-4">
               {/* Handle bar */}
               <div className="mb-4 h-1 w-10 rounded-full bg-gray-300 dark:bg-gray-700 mx-auto" />
-              
+
               {/* Input form */}
               <form onSubmit={handleSubmitAndClose} className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -135,29 +126,15 @@ const MobileChatFab = ({
                     onChange={onChange}
                     placeholder="Ask me anything..."
                     autoFocus
-                    className="
-                      flex-1 rounded-xl px-4 py-3
-                      bg-gray-50 dark:bg-gray-800
-                      text-gray-800 dark:text-gray-100
-                      border border-gray-200 dark:border-gray-700
-                      outline-none focus:ring-2 focus:ring-blue-500
-                      text-base
-                    "
+                    className="flex-1 rounded-xl px-4 py-3 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 text-base"
                   />
                   <button
                     type="submit"
                     disabled={isLoading || !inputValue.trim()}
-                    className="
-                      inline-flex items-center justify-center
-                      h-12 w-12 rounded-xl
-                      bg-gradient-to-r from-blue-500 to-purple-500 text-white
-                      shadow-md hover:shadow-lg active:scale-95
-                      disabled:opacity-60 disabled:cursor-not-allowed
-                      transition-all duration-200
-                    "
+                    className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M4 4l20 12-20 8 7-8-7-4z"/>
+                      <path d="M4 4l20 12-20 8 7-8-7-4z" />
                     </svg>
                   </button>
                 </div>
@@ -168,7 +145,7 @@ const MobileChatFab = ({
                     type="button"
                     className="text-xs px-3 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
                     onClick={() => {
-                      const event = { target: { value: "Show your top projects" } } as React.ChangeEvent<HTMLInputElement>;
+                      const event = { target: { value: 'Show your top projects' } } as React.ChangeEvent<HTMLInputElement>;
                       onChange(event);
                     }}
                   >
@@ -178,7 +155,7 @@ const MobileChatFab = ({
                     type="button"
                     className="text-xs px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
                     onClick={() => {
-                      const event = { target: { value: "What roles are you open to?" } } as React.ChangeEvent<HTMLInputElement>;
+                      const event = { target: { value: 'What roles are you open to?' } } as React.ChangeEvent<HTMLInputElement>;
                       onChange(event);
                     }}
                   >
@@ -249,7 +226,7 @@ const Chat = () => {
     onError: (error) => {
       setLoadingSubmit(false);
       console.error('Chat error:', error.message, error.cause);
-      
+
       // Handle specific error types
       if (error.message?.includes('quota') || error.message?.includes('exceeded') || error.message?.includes('429')) {
         // Show a friendly notification for quota issues
@@ -263,10 +240,10 @@ const Chat = () => {
             fontWeight: '500',
           },
         });
-        
+
         // Set error message state for frontend display
         setErrorMessage('quota_exhausted');
-        
+
         // Try to add a chat bubble with the error message
         try {
           append({
@@ -335,10 +312,10 @@ const Chat = () => {
   //@ts-ignore
   const submitQuery = (query) => {
     if (!query.trim() || isToolInProgress) return;
-    
+
     // Clear any previous error message
     setErrorMessage(null);
-    
+
     // Check if this is a preset question first
     if (presetReplies[query]) {
       const preset = presetReplies[query];
@@ -346,7 +323,7 @@ const Chat = () => {
       setLoadingSubmit(false);
       return;
     }
-    
+
     setLoadingSubmit(true);
     setPresetReply(null); // Clear any preset reply when submitting new query
     append({
@@ -358,10 +335,10 @@ const Chat = () => {
   //@ts-ignore
   const submitQueryToAI = (query) => {
     if (!query.trim() || isToolInProgress) return;
-    
+
     // Clear any previous error message
     setErrorMessage(null);
-    
+
     // Force AI response, bypass preset checking
     setLoadingSubmit(true);
     setPresetReply(null);
@@ -412,32 +389,27 @@ const Chat = () => {
   const headerHeight = hasActiveTool ? 100 : 180;
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-[100dvh]">
       {/* Fixed Avatar Header with Gradient */}
       <div
-        className="fixed top-0 right-0 left-0 z-50"
+        className="fixed top-0 right-0 left-0 z-50 pointer-events-none"
         style={{
           background:
             'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
         }}
       >
         <div
-          className={`transition-all duration-300 ease-in-out ${hasActiveTool ? 'pt-6 pb-0' : 'py-6'}`}
+          className={`transition-all duration-300 ease-in-out ${hasActiveTool ? 'pt-6 pb-0' : 'py-6'} pointer-events-auto`}
         >
           <div className="flex justify-center">
             <ClientOnly>
-              <Avatar
-                hasActiveTool={hasActiveTool}
-              />
+              <Avatar hasActiveTool={hasActiveTool} />
             </ClientOnly>
           </div>
 
           <AnimatePresence>
             {latestUserMessage && !currentAIMessage && (
-              <motion.div
-                {...MOTION_CONFIG}
-                className="mx-auto flex max-w-3xl px-4"
-              >
+              <motion.div {...MOTION_CONFIG} className="mx-auto flex max-w-3xl px-4">
                 <ChatBubble variant="sent">
                   <ChatBubbleMessage>
                     <ChatMessageContent
@@ -455,23 +427,16 @@ const Chat = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="container mx-auto flex h-full max-w-3xl flex-col">
+      <div className="container mx-auto flex min-h-[100dvh] max-w-3xl flex-col">
         {/* Scrollable Chat Content */}
         <div
-          className="flex-1 overflow-y-auto px-2 pb-4"
+          className="flex-1 overflow-y-auto px-2 pb-[120px] md:pb-[140px]"
           style={{ paddingTop: `${headerHeight}px` }}
         >
           <AnimatePresence mode="wait">
             {isEmptyState ? (
-              <motion.div
-                key="landing"
-                className="flex min-h-full items-center justify-center"
-                {...MOTION_CONFIG}
-              >
-                <ChatLanding 
-                  submitQuery={submitQuery} 
-                  handlePresetReply={handlePresetReply}
-                />
+              <motion.div key="landing" className="flex min-h-full items-center justify-center" {...MOTION_CONFIG}>
+                <ChatLanding submitQuery={submitQuery} handlePresetReply={handlePresetReply} />
               </motion.div>
             ) : presetReply ? (
               <div className="pb-4">
@@ -484,11 +449,7 @@ const Chat = () => {
                 />
               </div>
             ) : errorMessage ? (
-              <motion.div
-                key="error"
-                {...MOTION_CONFIG}
-                className="px-4 pt-4"
-              >
+              <motion.div key="error" {...MOTION_CONFIG} className="px-4 pt-4">
                 <ChatBubble variant="received">
                   <ChatBubbleMessage className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
                     <div className="space-y-4 p-4">
@@ -497,21 +458,16 @@ const Chat = () => {
                           <span className="text-white text-lg">⚠️</span>
                         </div>
                         <div>
-                          <h3 className="font-semibold text-amber-800 dark:text-amber-300 text-sm">
-                            API Quota Exhausted
-                          </h3>
-                          <p className="text-xs text-amber-600 dark:text-amber-400">
-                            Free Gemini API limit reached
-                          </p>
+                          <h3 className="font-semibold text-amber-800 dark:text-amber-300 text-sm">API Quota Exhausted</h3>
+                          <p className="text-xs text-amber-600 dark:text-amber-400">Free Gemini API limit reached</p>
                         </div>
                       </div>
-                      
+
                       <div className="text-sm text-amber-800 dark:text-amber-200 space-y-2">
                         <p>
-                          Hi! I'm currently using the <strong>free version</strong> of Google's Gemini API, 
-                          and today's quota has been reached.
+                          Hi! I'm currently using the <strong>free version</strong> of Google's Gemini API, and today's quota has been reached.
                         </p>
-                        
+
                         <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-lg mt-3">
                           <p className="font-medium mb-2">What you can do:</p>
                           <ul className="list-disc list-inside space-y-1 text-xs">
@@ -521,18 +477,14 @@ const Chat = () => {
                           </ul>
                         </div>
                       </div>
-                      
+
                       <div className="flex gap-2 mt-4">
                         <button
                           onClick={() => {
                             setErrorMessage(null);
-                            const preset = presetReplies["How can I reach you?"];
+                            const preset = presetReplies['How can I reach you?'];
                             if (preset) {
-                              setPresetReply({ 
-                                question: "How can I reach you?", 
-                                reply: preset.reply, 
-                                tool: preset.tool 
-                              });
+                              setPresetReply({ question: 'How can I reach you?', reply: preset.reply, tool: preset.tool });
                             }
                           }}
                           className="px-4 py-2 bg-amber-500 text-white text-sm rounded-md hover:bg-amber-600 transition-colors font-medium"
@@ -549,30 +501,19 @@ const Chat = () => {
                           Use Presets
                         </button>
                       </div>
-                      
-                      <p className="text-xs text-amber-600 dark:text-amber-400 text-center mt-3">
-                        Thank you for your patience! 🙏
-                      </p>
+
+                      <p className="text-xs text-amber-600 dark:text-amber-400 text-center mt-3">Thank you for your patience! 🙏</p>
                     </div>
                   </ChatBubbleMessage>
                 </ChatBubble>
               </motion.div>
             ) : currentAIMessage ? (
               <div className="pb-4">
-                <SimplifiedChatView
-                  message={currentAIMessage}
-                  isLoading={isLoading}
-                  reload={reload}
-                  addToolResult={addToolResult}
-                />
+                <SimplifiedChatView message={currentAIMessage} isLoading={isLoading} reload={reload} addToolResult={addToolResult} />
               </div>
             ) : (
               loadingSubmit && (
-                <motion.div
-                  key="loading"
-                  {...MOTION_CONFIG}
-                  className="px-4 pt-18"
-                >
+                <motion.div key="loading" {...MOTION_CONFIG} className="px-4 pt-18">
                   <ChatBubble variant="received">
                     <ChatBubbleMessage isLoading />
                   </ChatBubble>
@@ -582,38 +523,27 @@ const Chat = () => {
           </AnimatePresence>
         </div>
 
-{/* Fixed Bottom Bar - Always Visible */}
-<div className="sticky bottom-0 bg-transparent px-2 pt-2 md:px-0 md:pb-4">
-  <div className="relative flex flex-col items-center gap-2 md:gap-3">
-    {/* Always show HelperBoost - no conditional rendering */}
-    <HelperBoost 
-      submitQuery={submitQuery} 
-      setInput={setInput} 
-      handlePresetReply={handlePresetReply}
-    />
-    
-    {/* Desktop input only (hidden on mobile) */}
-    <div className="hidden md:block w-full">
-      <ChatBottombar
-        input={input}
-        handleInputChange={handleInputChange}
-        handleSubmit={onSubmit}
-        isLoading={isLoading}
-        stop={handleStop}
-        isToolInProgress={isToolInProgress}
-      />
-    </div>
-  </div>
-</div>
-
+        {/* Fixed Bottom Bar - Always Visible */}
+        <div className="fixed inset-x-0 bottom-0 z-[55] bg-white/85 dark:bg-gray-900/85 backdrop-blur supports-[backdrop-filter]:bg-white/75 fixed-bottom-safe">
+          <div className="mx-auto max-w-3xl px-2 pt-2 md:px-0 md:pb-4">
+            <div className="relative flex flex-col items-center gap-2 md:gap-3">
+              <HelperBoost submitQuery={submitQuery} setInput={setInput} handlePresetReply={handlePresetReply} />
+              <div className="hidden md:block w-full">
+                <ChatBottombar
+                  input={input}
+                  handleInputChange={handleInputChange}
+                  handleSubmit={onSubmit}
+                  isLoading={isLoading}
+                  stop={handleStop}
+                  isToolInProgress={isToolInProgress}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Mobile FAB (shows only on mobile) */}
-        <MobileChatFab
-          inputValue={input}
-          onChange={handleInputChange}
-          onSubmit={onSubmit}
-          isLoading={isLoading}
-        />
+        <MobileChatFab inputValue={input} onChange={handleInputChange} onSubmit={onSubmit} isLoading={isLoading} />
       </div>
     </div>
   );
