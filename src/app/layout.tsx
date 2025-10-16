@@ -19,6 +19,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5, // Allows zooming for accessibility
   userScalable: true, // Better accessibility
+  viewportFit: 'cover', // Enable safe-area-inset support on mobile
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#000000' }
