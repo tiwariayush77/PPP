@@ -128,7 +128,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery, handlePresetRepl
 
         {/* Compact Description */}
         <p className="text-gray-600 dark:text-gray-300 mx-auto max-w-lg text-sm sm:text-base leading-relaxed">
-          Product Manager with 3+ years of 0→1 experience. Navigate below to explore my work.
+          Aspiring Product Manager with 3+ years of 0→1 experience across Fintech, Edtech and as a Founder. Navigate below to explore my work.
         </p>
       </motion.div>
 
