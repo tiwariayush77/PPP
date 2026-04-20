@@ -15,7 +15,7 @@ export function useBottomInsets() {
   const [bottomInset, setBottomInset] = useState(0);
   const [barHeight, setBarHeight] = useState(120); // Default fallback height
   const barRef = useRef<HTMLDivElement>(null);
-  const measurementTimeoutRef = useRef<NodeJS.Timeout>();
+  const measurementTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const measureInsets = useCallback(() => {
     // Clear any pending measurements to debounce rapid changes
