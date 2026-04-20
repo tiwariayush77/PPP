@@ -89,6 +89,127 @@
   ],
   "projects": [
     {
+      "title": "5paisa – Embedded AI Portfolio Guide",
+      "category": "FinTech Product Strategy & UX",
+      "description": "Mobile-first 5paisa prototype that threads embedded AI through the existing app shell — portfolio health scoring, tax-harvest alerts, mutual fund overlap analysis, options-risk explainers, and a bilingual EN/HI 'Ask 5paisa Guide' contextual assistant. Designed as a guided-tour-first experience so retail investors understand portfolio quality, not just returns, without leaving core flows.",
+      "techStack": ["Product Strategy", "UX Design", "React", "Vite", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
+      "date": "2026",
+      "status": "Prototype",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Prototype",
+          "url": "https://5paisa-at.vercel.app/"
+        },
+        {
+          "name": "GitHub Repo",
+          "url": "https://github.com/tiwariayush77/5paisa-AT"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/5paisa/home.jpg",
+          "alt": "5paisa embedded AI home with portfolio health and tax alert"
+        }
+      ]
+    },
+    {
+      "title": "Groww – Goals-First Wealth & Tax Centre",
+      "category": "Wealth Management Product Design",
+      "description": "Groww-inspired mobile prototype that reorganises the investment experience around goals, mutual fund overlap, and a dedicated Tax Centre. Features a splash-to-home onboarding tour, crash-simulation flows, FY-specific tax views, overlap reports per fund, and full screen-level navigation (Home → Goals → Portfolio → MF → Tax). Designed to move users beyond daily NAV-checking into long-term portfolio health.",
+      "techStack": ["Product Strategy", "Journey Design", "React", "Vite", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "date": "2026",
+      "status": "Prototype",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Prototype",
+          "url": "https://groww-dun.vercel.app/"
+        },
+        {
+          "name": "GitHub Repo",
+          "url": "https://github.com/tiwariayush77/groww"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/groww/home-goals.jpg",
+          "alt": "Groww prototype home and goals overview"
+        }
+      ]
+    },
+    {
+      "title": "Zime Insights – AI Deal Risk Dashboard",
+      "category": "B2B SaaS Sales Intelligence",
+      "description": "Desktop dashboard prototype for Zime that scores pipeline health into high/medium/low risk buckets, surfaces deal-level root causes, and recommends next-best actions per opportunity. Includes a Team Performance sidebar, Quick Actions panel, and deal-card filtering by risk level — so AEs and revenue managers can shift from stuck pipeline review to clean, prioritised follow-up in under a minute.",
+      "techStack": ["Product Strategy", "Sales Ops UX", "Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "Recharts", "Firebase", "Genkit AI"],
+      "date": "2026",
+      "status": "Prototype",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Prototype",
+          "url": "https://zime-ai-case-study.vercel.app/"
+        },
+        {
+          "name": "GitHub Repo",
+          "url": "https://github.com/tiwariayush77/studio"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/zime/dashboard.jpg",
+          "alt": "Zime Insights dashboard with risk buckets and deal cards"
+        }
+      ]
+    },
+    {
+      "title": "Urban Company – Partner Pro Hub",
+      "category": "Gig Partner Productivity & Ops",
+      "description": "Concept prototype for Urban Company's service partner app that consolidates daily earnings, upcoming job slots, ratings, and nudges into a single mobile hub. Focuses on reducing partner idle time, making payouts predictable, and using lightweight AI prompts to help partners decide which jobs to accept or prioritise — improving both partner satisfaction and customer SLA adherence.",
+      "techStack": ["Product Strategy", "UX/UI Design", "Gig Economy Ops", "Interactive Prototype"],
+      "date": "2026",
+      "status": "Concept Prototype",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Prototype",
+          "url": "https://uc-partner-pro-hub.lovable.app/"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/uc/partner-hub.jpg",
+          "alt": "Urban Company partner hub dashboard"
+        }
+      ]
+    },
+    {
+      "title": "Farmart – AI-Powered Agri Partner App",
+      "category": "B2B Agri Marketplace & AI Assistant",
+      "description": "Farmart partner app prototype for small agri distributors and kirana-level retailers that unifies My Sauda (deal tracking), Bahi Khata (digital ledger), AI Chat, Promotions, Community, and Trade into one hub. Designed for low-friction Hinglish-first flows so non-technical mandi users can manage trade, credit, and government schemes without Excel or WhatsApp chaos. Built on Next.js + Genkit AI + Firebase.",
+      "techStack": ["Product Strategy", "Service Design", "Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "Firebase", "Genkit AI"],
+      "date": "2026",
+      "status": "Prototype",
+      "featured": true,
+      "links": [
+        {
+          "name": "Live Prototype",
+          "url": "https://farmart-smoky.vercel.app/"
+        },
+        {
+          "name": "GitHub Repo",
+          "url": "https://github.com/tiwariayush77/Farmart"
+        }
+      ],
+      "images": [
+        {
+          "src": "/projects/farmart/home.jpg",
+          "alt": "Farmart partner app home with AI smart card and features grid"
+        }
+      ]
+    },
+    {
       "title": "🏆 SonyLIV Enhanced - Capstone Winner",
       "category": "Product Strategy & UX Design",
       "description": "Won capstone competition by solving SonyLIV's critical 7-day user retention problem through innovative mood-based personalization and Netflix-quality user experience. Developed comprehensive streaming platform with AI-powered content discovery, cultural intelligence, and seamless user onboarding flow that projected 40%+ improvement in retention metrics.",
@@ -112,7 +233,7 @@
           "alt": "SonyLIV Enhanced Homepage with mood-based personalization"
         },
         {
-          "src": "/projects/sonyliv/onboarding.jpg", 
+          "src": "/projects/sonyliv/onboarding.jpg",
           "alt": "SonyLIV Enhanced Onboarding Flow"
         }
       ]
@@ -264,7 +385,10 @@
     "linkedin": "https://linkedin.com/in/tiwariayush77",
     "github": "https://github.com/tiwariayush77",
     "twitter": "https://twitter.com/tiwariayush77",
-    "email": "tiwariayush77@gmail.com"
+    "email": "tiwariayush77@gmail.com",
+    "kaggle": "",
+    "leetcode": "",
+    "fiverr": ""
   },
   "internship": {
     "seeking": true,
@@ -362,9 +486,9 @@
     ]
   },
   "meta": {
-    "configVersion": "2.1",
-    "lastUpdated": "2025-09-26",
+    "configVersion": "2.2",
+    "lastUpdated": "2026-04-21",
     "generatedBy": "PPP Portfolio System",
-    "description": "Complete portfolio configuration for Ayush Tiwari - Product Manager with 3+ YOE in 0→1 product development across FinTech, EdTech, and B2B. Updated with SonyLIV capstone winner and Blinkit strategy projects."
+    "description": "Complete portfolio configuration for Ayush Tiwari - Product Manager with 3+ YOE in 0→1 product development across FinTech, EdTech, B2B, and Agri. Updated with 5paisa, Groww, Zime, Urban Company, and Farmart prototypes."
   }
 }
