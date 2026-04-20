@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 /**
  * Hook to measure and track bottom viewport insets for mobile-friendly fixed footers
  * Handles: Visual viewport changes, safe areas, keyboard overlays, browser chrome
- * 
+ *
  * @returns {
  *   bottomInset: number - Total bottom inset (visual viewport + safe area)
  *   barHeight: number - Current measured height of the fixed bar
@@ -15,7 +15,7 @@ export function useBottomInsets() {
   const [bottomInset, setBottomInset] = useState(0);
   const [barHeight, setBarHeight] = useState(120); // Default fallback height
   const barRef = useRef<HTMLDivElement>(null);
-  const measurementTimeoutRef = useRef<NodeJS.Timeout>();
+  const measurementTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const measureInsets = useCallback(() => {
     // Clear any pending measurements to debounce rapid changes
@@ -29,7 +29,7 @@ export function useBottomInsets() {
       // 1. Measure visual viewport bottom inset (keyboard, browser chrome)
       const visualViewport = (window as any).visualViewport;
       if (visualViewport && typeof visualViewport.height === 'number') {
-        const viewportInset = Math.max(0, 
+        const viewportInset = Math.max(0,
           window.innerHeight - (visualViewport.height + (visualViewport.offsetTop || 0))
         );
         totalInset += viewportInset;
