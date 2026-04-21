@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@radix-ui/react-tooltip';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   BriefcaseBusiness,
   BriefcaseIcon,
@@ -24,7 +24,7 @@ import {
   UserRoundSearch,
   UserSearch,
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Drawer } from 'vaul';
 import { PresetReply } from '@/components/chat/preset-reply';
 import { presetReplies } from '@/lib/config-loader';
@@ -142,19 +142,14 @@ export default function HelperBoost({
   setInput,
   handlePresetReply,
 }: HelperBoostProps) {
+  // FIX: removed the useEffect that was force-resetting isVisible to true on every render
   const [isVisible, setIsVisible] = useState(true);
   const [open, setOpen] = useState(false);
   const [showPresetReply, setShowPresetReply] = useState<string | null>(null);
 
-  // Force buttons to be visible on mount
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const handleQuestionClick = (questionKey: string) => {
     const question = questions[questionKey as keyof typeof questions];
-    
-    // Map question keys to preset replies that match our config exactly
+
     const presetMapping: { [key: string]: string } = {
       'Me': 'Who are you?',
       'Projects': 'What projects are you most proud of?',
@@ -162,7 +157,7 @@ export default function HelperBoost({
       'Resume': 'Can I see your resume?',
       'Contact': 'How can I reach you?'
     };
-    
+
     const presetKey = presetMapping[questionKey];
     if (presetKey && presetReplies[presetKey] && handlePresetReply) {
       const preset = presetReplies[presetKey];
@@ -173,7 +168,6 @@ export default function HelperBoost({
   };
 
   const handleDrawerQuestionClick = (question: string) => {
-    // For drawer questions, always use AI response (no presets)
     if (submitQuery) {
       submitQuery(question);
     }
@@ -188,7 +182,7 @@ export default function HelperBoost({
   };
 
   const toggleVisibility = () => {
-    setIsVisible(!isVisible);
+    setIsVisible((prev) => !prev);
   };
 
   return (
@@ -196,13 +190,7 @@ export default function HelperBoost({
       <Drawer.Root open={open} onOpenChange={setOpen}>
         <div className="w-full bg-transparent">
           {/* Toggle Button */}
-          <div
-            className={
-              isVisible
-                ? 'mb-2 flex justify-center bg-transparent'
-                : 'mb-0 flex justify-center bg-transparent'
-            }
-          >
+          <div className="mb-2 flex justify-center bg-transparent">
             <button
               onClick={toggleVisibility}
               className="flex items-center gap-1 px-3 py-1 text-xs text-gray-500 transition-colors hover:text-gray-700 bg-transparent"
@@ -221,49 +209,59 @@ export default function HelperBoost({
             </button>
           </div>
 
-          {/* FIXED: Always show horizontal buttons - removed isVisible condition */}
-          <div className="w-full bg-transparent">
-            {/* Subtle gradient wash for blending */}
-            <div className="relative w-full bg-transparent">
-              <div
-                className="
-                  flex w-full gap-2 md:gap-3
-                  overflow-x-auto custom-scrollbar
-                  snap-x snap-mandatory
-                  bg-transparent
-                  supports-[backdrop-filter]:backdrop-blur-sm
-                  px-2 py-3
-                "
-                style={{ justifyContent: 'safe center' }}
+          {/* FIX: guard with isVisible so buttons actually hide/show */}
+          <AnimatePresence initial={false}>
+            {isVisible && (
+              <motion.div
+                key="quick-questions"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+                className="w-full overflow-hidden bg-transparent"
               >
-                {questionConfig.map(({ key, color, icon: Icon }) => (
-                  <Button
-                    key={key}
-                    onClick={() => handleQuestionClick(key)}
-                    variant="outline"
+                <div className="relative w-full bg-transparent">
+                  <div
                     className="
-                      group relative
-                      h-10 md:h-11 min-w-[100px] flex-shrink-0
-                      px-3.5 md:px-4 rounded-2xl
-                      bg-white/30 dark:bg-gray-900/30
-                      backdrop-blur-lg
-                      border border-gray-200/50 dark:border-gray-800/50
-                      shadow-sm hover:shadow-md 
-                      hover:-translate-y-0.5 active:translate-y-0
-                      hover:bg-white/40 dark:hover:bg-gray-900/40
-                      transition-all duration-200 ease-out
-                      focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                      flex w-full gap-2 md:gap-3
+                      overflow-x-auto custom-scrollbar
+                      snap-x snap-mandatory
+                      bg-transparent
+                      supports-[backdrop-filter]:backdrop-blur-sm
+                      px-2 py-3
                     "
+                    style={{ justifyContent: 'safe center' }}
                   >
-                    <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
-                      <Icon size={18} strokeWidth={2} color={color} className="transition-transform duration-200 group-hover:scale-110" />
-                      <span className="text-sm font-semibold">{key}</span>
-                    </div>
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </div>
+                    {questionConfig.map(({ key, color, icon: Icon }) => (
+                      <Button
+                        key={key}
+                        onClick={() => handleQuestionClick(key)}
+                        variant="outline"
+                        className="
+                          group relative
+                          h-10 md:h-11 min-w-[100px] flex-shrink-0
+                          px-3.5 md:px-4 rounded-2xl
+                          bg-white/30 dark:bg-gray-900/30
+                          backdrop-blur-lg
+                          border border-gray-200/50 dark:border-gray-800/50
+                          shadow-sm hover:shadow-md
+                          hover:-translate-y-0.5 active:translate-y-0
+                          hover:bg-white/40 dark:hover:bg-gray-900/40
+                          transition-all duration-200 ease-out
+                          focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                        "
+                      >
+                        <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
+                          <Icon size={18} strokeWidth={2} color={color} className="transition-transform duration-200 group-hover:scale-110" />
+                          <span className="text-sm font-semibold">{key}</span>
+                        </div>
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Enhanced Drawer Content with Contact-Style Hover Effects */}
@@ -371,14 +369,14 @@ interface QuestionItemProps {
   textColor: string;
 }
 
-function QuestionItem({ 
-  question, 
-  onClick, 
-  isSpecial, 
-  bgColor, 
-  borderColor, 
-  hoverColor, 
-  textColor 
+function QuestionItem({
+  question,
+  onClick,
+  isSpecial,
+  bgColor,
+  borderColor,
+  hoverColor,
+  textColor,
 }: QuestionItemProps) {
   return (
     <motion.button
@@ -386,12 +384,11 @@ function QuestionItem({
         'group relative flex w-full items-center justify-between rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300',
         'text-sm px-6 py-4 text-left font-medium',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
-        isSpecial 
-          ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white border-0 hover:from-purple-600 hover:to-blue-600' 
+        isSpecial
+          ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white border-0 hover:from-purple-600 hover:to-blue-600'
           : `${bgColor} dark:bg-gray-800 border-2 ${borderColor} dark:border-gray-700 ${hoverColor} dark:hover:border-blue-600`
       )}
       onClick={onClick}
-      // CONTACT-STYLE hover effects
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
@@ -404,7 +401,7 @@ function QuestionItem({
           {question}
         </span>
       </div>
-      
+
       {/* CONTACT-STYLE animated chevron */}
       <div className="inline-flex items-center text-blue-500 font-medium text-sm">
         <ChevronRight
