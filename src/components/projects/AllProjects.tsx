@@ -131,7 +131,7 @@ export default function AllProjects() {
       'User Engagement Optimization': { 
         icon: Heart, 
         gradient: 'from-red-500 to-pink-500',
-        bgColor: 'group-hover:border-red-300 dark:group-hover:border-red-600'
+        bgColor: 'group-hover:border-red-300 dark:group-hover:border-pink-600'
       }
     };
 
@@ -178,7 +178,7 @@ export default function AllProjects() {
       ],
       'EdTech Business Development': [
         { icon: BarChart3, gradient: 'from-indigo-500 to-purple-500', bgColor: 'group-hover:border-indigo-300 dark:group-hover:border-indigo-600' },
-        { icon: Users, gradient: 'from-purple-500 to-pink-500', bgColor: 'group-hover:border-purple-300 dark:group-hover:border-purple-600' }
+        { icon: Users, gradient: 'from-purple-500 to-pink-500', bgColor: 'group-hover:border-purple-300 dark:group-hover:border-pink-600' }
       ]
     };
 
@@ -318,7 +318,7 @@ export default function AllProjects() {
         </div>
       </section>
 
-      {/* ✅ FIXED: Modal with safe property access */}
+      {/* ✅ FIXED: Modal — overflow-y-auto on outer, max-h-[80vh] to account for mobile browser chrome */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -333,11 +333,11 @@ export default function AllProjects() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto"
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
-              {/* Modal header with safe property access */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+              {/* Modal header — sticky so it stays visible while scrolling */}
+              <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-t-3xl">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 bg-gradient-to-r ${getUniqueProjectSymbol(selectedProject?.title || '', selectedProject?.category || '', 0).gradient} rounded-xl flex items-center justify-center`}>
                     {React.createElement(getUniqueProjectSymbol(selectedProject?.title || '', selectedProject?.category || '', 0).icon, {
@@ -358,8 +358,8 @@ export default function AllProjects() {
                 </button>
               </div>
 
-              {/* Modal content with safe property access */}
-              <div className="p-6 overflow-y-auto max-h-[70vh]">
+              {/* Modal content — no inner overflow needed, outer handles it */}
+              <div className="p-6">
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Overview</h4>
@@ -396,9 +396,9 @@ export default function AllProjects() {
                   </div>
 
                   {selectedProject?.links && selectedProject.links.length > 0 && (
-                    <div>
+                    <div className="pb-2">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Links</h4>
-                      <div className="flex gap-3">
+                      <div className="flex flex-wrap gap-3">
                         {selectedProject.links.map((link: any, index: number) => (
                           <a
                             key={index}
