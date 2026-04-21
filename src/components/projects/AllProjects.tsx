@@ -318,14 +318,15 @@ export default function AllProjects() {
         </div>
       </section>
 
-      {/* ✅ FIXED: Modal — overflow-y-auto on outer, max-h-[80vh] to account for mobile browser chrome */}
+      {/* ✅ FIXED: Modal backdrop raised to z-[60] to sit above the fixed bottom bar (z-[55])
+          preventing HelperBoost "Hide quick questions" panel from bleeding over the modal on desktop */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
             onClick={closeModal}
           >
             <motion.div
